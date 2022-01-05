@@ -2,15 +2,74 @@
 
 .login {
   background-color: $mainColor;
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40vh;
+
   .wrapper {
+    height: 40vh;
+    h1 {
+      color: white;
+      font-size: 70px;
+    }
+    h3 {
+      color: lightblue;
+    }
+    h2 {
+      color: cornflowerblue;
+    }
+    display: flex;
+    width: 100%;
     .left {
+      flex: 0.5;
+      align-items: center;
+      justify-content: center;
+      border-right: 3px solid white;
     }
     .right {
+      flex: 0.5;
+      .titles {
+        h2 {
+          color: white;
+          font-size: 40px;
+        }
+      }
+
+      .login {
+        color: white;
+        font-weight: bolder;
+        display: flex;
+        flex-direction: column;
+        background-color: $mainColor;
+        margin: 20px;
+        justify-content: center;
+        align-items: center;
+
+        .email {
+          width: 300px;
+          height: 2rem;
+          margin: 10px;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.2rem;
+        }
+        .password {
+          height: 2rem;
+          width: 300px;
+          margin: 10px;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.2rem;
+        }
+        button {
+          color: white;
+          background-color: cornflowerblue;
+          border: none;
+          margin: 10px;
+          height: 2rem;
+          width: 300px;
+          border-radius: 10px;
+          font-size: 1.2rem;
+        }
+      }
     }
   }
 }
