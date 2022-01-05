@@ -1,5 +1,5 @@
 import "./dashboard.scss";
 
-export default function Dashboard() {
+export function Dashboard() {
   return <div className="dashboard"></div>;
 }

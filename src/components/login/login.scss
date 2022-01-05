@@ -1,0 +1,16 @@
+@import "../../global.scss";
+
+.login {
+  background-color: $mainColor;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  .wrapper {
+    .left {
+    }
+    .right {
+    }
+  }
+}
