@@ -1,6 +1,6 @@
 import "./login.scss";
 
-export function Login() {
+export default function Login() {
   return (
     <div className="login">
       <div className="wrapper">

@@ -1,5 +1,5 @@
 import "./census.scss";
 
-export function Census() {
+export default function Census() {
   return <div className="census"></div>;
 }

@@ -1,6 +1,6 @@
 import "./header.scss";
 
-export function Header() {
+export default function Header() {
   return (
     <div className="header">
       <div className="image-container">
