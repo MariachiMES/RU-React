@@ -18,7 +18,33 @@ export default function Dashboard() {
           <div className="smarty-streets"></div>
         </div>
         <div className="right">
-          <div className="taskbar"></div>
+          <div className="taskbar">
+            <div className="task-header">
+              <h2>Taskbar</h2>
+            </div>
+            <div className="tasks">
+              <ul>
+                <li>Sponsor Assessment</li>
+                <li>FRP</li>
+                <li>ARI</li>
+                <li>Proof of Relationship</li>
+                <li>Proof of Address</li>
+                <li>Letter of Designation</li>
+                <li>LOPC</li>
+                <li>Sponsor Background Check</li>
+                <li>Sponsor ID Received</li>
+                <li>Fingerprints Taken</li>
+                <li>HHM ID's Received</li>
+                <li>HHM Background Checks</li>
+                <li>HHM Sex-Offender Checks</li>
+                <li>Home Country Caregiver Contact</li>
+                <li>CA/N Checks Requested</li>
+                <li>Prior Sponsorship</li>
+                <li>Previous Address</li>
+                <li>Criminal History</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
