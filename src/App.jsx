@@ -18,7 +18,6 @@ function App() {
         <Header />
         <Login />
         <Signup />
-        <Navbar />
         <Dashboard />
         <Census />
       </div>

@@ -1,12 +1,12 @@
 @import "../../global.scss";
 .signup {
   background-color: $mainColor;
+  height: 50vh;
   .signin {
     background-color: $mainColor;
     display: flex;
 
     .wrapper {
-      height: 40vh;
       h1 {
         color: white;
         font-size: 70px;
