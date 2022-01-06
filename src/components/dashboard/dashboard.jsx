@@ -9,13 +9,39 @@ export default function Dashboard() {
       </div>
       <div className="wrapper">
         <div className="left">
-          <div className="case-status"></div>
-          <div className="exception"></div>
+          <div className="case-status">
+            <div className="case-status-header">
+              <h2>Case Status</h2>
+            </div>
+            <div className="tile-contents">
+              <h3>FUCK</h3>
+              <ul>
+                <li>DATE</li>
+              </ul>
+            </div>
+          </div>
+          <div className="exception">
+            <div className="exception-header">
+              <h2>Exception</h2>
+            </div>
+          </div>
         </div>
         <div className="middle">
-          <div className="demographics"></div>
-          <div className="sponsor"></div>
-          <div className="smarty-streets"></div>
+          <div className="demographics">
+            <div className="demographics-header">
+              <h2>Demographics</h2>
+            </div>
+          </div>
+          <div className="sponsor">
+            <div className="sponsor-header">
+              <h2>Sponsor</h2>
+            </div>
+          </div>
+          <div className="smarty-streets">
+            <div className="smarty-streets-header">
+              <h2>Address Verification</h2>
+            </div>
+          </div>
         </div>
         <div className="right">
           <div className="taskbar">
