@@ -15,6 +15,18 @@
   justify-content: center;
   border-left: rgb(14, 255, 255) solid 5px;
 
+  .menu-header {
+    position: absolute;
+    bottom: 20px;
+
+    h1 {
+      background-color: rgba(220, 20, 60, 0.6);
+      border-radius: 20px;
+      width: 130%;
+      font-size: 25px;
+    }
+  }
+
   &.active {
     right: 0;
   }
