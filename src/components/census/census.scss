@@ -1,0 +1,119 @@
+@import "../../global.scss";
+
+.census {
+  background-color: $mainColor;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .census-header {
+    height: 10vh;
+    display: flex;
+    width: 100%;
+
+    .census-header-left {
+      align-items: left;
+      justify-content: space-evenly;
+      flex: 0.5;
+      display: flex;
+      background-color: rgba(245, 243, 243, 0.2);
+      border-radius: 20px;
+      padding-top: 10px;
+      .total {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 10px;
+        }
+      }
+      .submitted {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 10px;
+        }
+      }
+      .approved {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 10px;
+        }
+      }
+      .remanded {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 10px;
+        }
+      }
+    }
+    .census-header-right {
+      display: flex;
+      flex: 0.5;
+      align-items: right;
+      justify-content: right;
+      text-align: right;
+      margin: auto;
+      margin-right: 40px;
+      h1 {
+        color: white;
+        margin-right: 40px;
+      }
+      .discharged-btn {
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: cornflowerblue;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+      }
+      .logout-btn {
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: red;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        margin-right: 40px;
+      }
+    }
+  }
+  .census-table {
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    tr {
+      border-bottom: 1px cornflowerblue solid;
+      width: 100vw;
+      display: flex;
+      th {
+        font-size: 25px;
+        color: white;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        margin-top: 10px;
+      }
+      td {
+        color: white;
+        margin-top: 10px;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+}
