@@ -7,9 +7,11 @@
   display: flex;
   flex-direction: column;
   .census-header {
-    height: 10vh;
+    margin-top: 40px;
+    height: 8vh;
     display: flex;
     width: 100%;
+    margin-bottom: 30px;
 
     .census-header-left {
       align-items: left;
@@ -17,15 +19,16 @@
       flex: 0.5;
       display: flex;
       background-color: rgba(245, 243, 243, 0.2);
-      border-radius: 20px;
+      border-radius: 0px 20px 20px 0px;
       padding-top: 10px;
+      box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
       .total {
         color: white;
         h3 {
           margin: 0;
         }
         h1 {
-          margin: 10px;
+          margin: 0;
         }
       }
       .submitted {
@@ -34,7 +37,7 @@
           margin: 0;
         }
         h1 {
-          margin: 10px;
+          margin: 0;
         }
       }
       .approved {
@@ -43,7 +46,7 @@
           margin: 0;
         }
         h1 {
-          margin: 10px;
+          margin: 0;
         }
       }
       .remanded {
@@ -52,7 +55,7 @@
           margin: 0;
         }
         h1 {
-          margin: 10px;
+          margin: 0;
         }
       }
     }
@@ -69,6 +72,8 @@
         margin-right: 40px;
       }
       .discharged-btn {
+        font-size: 25px;
+        width: 100%;
         border: none;
         height: 2rem;
         margin: 20px;
@@ -76,8 +81,11 @@
         color: white;
         font-weight: 700;
         border-radius: 20px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
       }
       .logout-btn {
+        width: 100%;
+        font-size: 25px;
         border: none;
         height: 2rem;
         margin: 20px;
@@ -86,6 +94,7 @@
         font-weight: 700;
         border-radius: 20px;
         margin-right: 40px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
       }
     }
   }

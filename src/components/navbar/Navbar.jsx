@@ -9,9 +9,9 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
             Reunification
           </a>
           <div className="itemContainer">
-            <span id="phone-number">Something</span>
+            <span id="phone-number">Add UAC</span>
             <i class="fas fa-envelope" id="envelope">
-              <span id="email-address">Something</span>
+              <span id="email-address">Add Case Manager</span>
             </i>
           </div>
         </div>
