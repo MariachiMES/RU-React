@@ -8,6 +8,14 @@ const resolvers = require("./schemas/resolvers");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Serve up static assets
+app.use(
+  "/images",
+  express.static(path.join(__dirname, "../client/public/images"))
+);
 
 const server = new ApolloServer({
   introspection: true,
