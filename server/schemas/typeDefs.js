@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Profile {
@@ -13,7 +13,7 @@ const typeDefs = gql`
   # Set up an Auth type to handle returning data from a profile creating or user login
   type Auth {
     token: ID!
-    profile: Profile
+    caseManager: CaseManager
   }
 
   type Query {
