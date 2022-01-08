@@ -1,0 +1,128 @@
+@import "../../global.scss";
+
+.census {
+  background-color: $mainColor;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .census-header {
+    margin-top: 40px;
+    height: 8vh;
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+
+    .census-header-left {
+      align-items: left;
+      justify-content: space-evenly;
+      flex: 0.5;
+      display: flex;
+      background-color: rgba(245, 243, 243, 0.2);
+      border-radius: 0px 20px 20px 0px;
+      padding-top: 10px;
+      box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+      .total {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .submitted {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .approved {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .remanded {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+    }
+    .census-header-right {
+      display: flex;
+      flex: 0.5;
+      align-items: right;
+      justify-content: right;
+      text-align: right;
+      margin: auto;
+      margin-right: 40px;
+      h1 {
+        color: white;
+        margin-right: 40px;
+      }
+      .discharged-btn {
+        font-size: 25px;
+        width: 100%;
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: cornflowerblue;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+      }
+      .logout-btn {
+        width: 100%;
+        font-size: 25px;
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: red;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        margin-right: 40px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  .census-table {
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    tr {
+      border-bottom: 1px cornflowerblue solid;
+      width: 100vw;
+      display: flex;
+      th {
+        font-size: 25px;
+        color: white;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        margin-top: 10px;
+      }
+      td {
+        color: white;
+        margin-top: 10px;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+}
