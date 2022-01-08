@@ -1,4 +1,7 @@
 ![GitHub license](https://img.shields.io/badge/license--blue.svg)
+<img width="1358" alt="Screen Shot 2022-01-08 at 10 10 43 AM" src="https://user-images.githubusercontent.com/87109541/148651506-bc17f2b2-1817-49a2-8c1a-ee89c1bda349.png">
+<img width="1355" alt="Screen Shot 2022-01-08 at 10 10 29 AM" src="https://user-images.githubusercontent.com/87109541/148651513-f714122e-4e3d-4725-9aed-ece07e04598b.png">
+<img width="1358" alt="Screen Shot 2022-01-08 at 10 10 43 AM" src="https://user-images.githubusercontent.com/87109541/148651515-1df65bf8-dd83-4240-87ff-b36eb10e2b13.png">
 
 # Reunification Flow
 
