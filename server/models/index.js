@@ -1,4 +1,4 @@
-// const CaseManager = require("./CaseManager");
-// const UAC = require("./Uac");
+const CaseManager = require("./CaseManager");
+const UAC = require("./Uac");
 
-// module.exports = { CaseManager, UAC };
+module.exports = { CaseManager, UAC };
