@@ -18,6 +18,12 @@ app.use(
   express.static(path.join(__dirname, "../client/public/images"))
 );
 
+app.use("/", express.static(path.join(__dirname, "../client/public")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/public/index.html"));
+});
+
 const server = new ApolloServer({
   introspection: true,
   typeDefs,
