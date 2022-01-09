@@ -5,9 +5,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
     <div className={"navbar " + (menuOpen && "active")} id="navbar">
       <div className="wrapper">
         <div className="left">
-          <a href="" className="logo">
-            Reunification
-          </a>
+          <div className="logo">Reunification</div>
           <div className="itemContainer">
             <span id="phone-number">Add UAC</span>
             <i class="fas fa-envelope" id="envelope">
