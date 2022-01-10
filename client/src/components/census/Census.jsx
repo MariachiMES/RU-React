@@ -1,8 +1,14 @@
 import "./census.scss";
+import NewUacModal from "../newUACModal/NewUacModal";
 
-export default function Census() {
+export default function Census({ newUacModalOpen, setNewUacModalOpen }) {
   return (
     <div className="census">
+      <NewUacModal
+        newUacModalOpen={newUacModalOpen}
+        setNewUacModalOpen={setNewUacModalOpen}
+      />
+
       <div className="census-header">
         <div className="census-header-left">
           <div className="total">
@@ -25,7 +31,12 @@ export default function Census() {
         <div className="census-header-right">
           <button className="discharged-btn">DISCHARGED</button>
           <button className="logout-btn">LOGOUT</button>
-          <h1 className="add-uac">+</h1>
+          <h1
+            className="add-uac"
+            onClick={() => setNewUacModalOpen(!newUacModalOpen)}
+          >
+            +
+          </h1>
         </div>
       </div>
       <div className="census-table">

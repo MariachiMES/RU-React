@@ -11,6 +11,7 @@ import NewUacModal from "./components/newUACModal/NewUacModal";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [newUacModalOpen, setNewUacModalOpen] = useState(false);
   return (
     <div className="App">
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -20,8 +21,10 @@ function App() {
         <Login />
         <Signup />
         <Dashboard />
-        <Census />
-        <NewUacModal />
+        <Census
+          newUacModalOpen={newUacModalOpen}
+          setNewUacModalOpen={setNewUacModalOpen}
+        />
       </div>
     </div>
   );
