@@ -7,6 +7,7 @@ import Signup from "./components/signup/Signup";
 import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/menu/Menu";
 import { useState } from "react";
+import NewUacModal from "./components/newUACModal/NewUacModal";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,6 +21,7 @@ function App() {
         <Signup />
         <Dashboard />
         <Census />
+        <NewUacModal />
       </div>
     </div>
   );
