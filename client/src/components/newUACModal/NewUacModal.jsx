@@ -5,10 +5,7 @@ export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
   return (
     <div>
       <div className={"modal " + (newUacModalOpen && "active")}>
-        <div
-          className="modal-background"
-          onClick={() => setNewUacModalOpen(false)}
-        >
+        <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">
               <div className="modal-form-header-right">
