@@ -8,10 +8,15 @@ import Navbar from "./components/navbar/Navbar";
 import Menu from "./components/menu/Menu";
 import { useState } from "react";
 import NewUacModal from "./components/newUACModal/NewUacModal";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    document.title = "Reunify";
+  }, []);
   const [menuOpen, setMenuOpen] = useState(false);
   const [newUacModalOpen, setNewUacModalOpen] = useState(false);
+
   return (
     <div className="App">
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />

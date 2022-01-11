@@ -1,8 +1,15 @@
 import "./dashboard.scss";
-
+import EditDemographicsModal from "../EditDemographicsModal/EditDemographicsModal";
+import { useState } from "react";
 export default function Dashboard() {
+  const [editDemographicsModalOpen, setEditDemographicsModalOpen] =
+    useState(false);
   return (
     <div className="dashboard">
+      <EditDemographicsModal
+        editDemographicsModalOpen={editDemographicsModalOpen}
+        setEditDemographicsModalOpen={setEditDemographicsModalOpen}
+      />
       <div className="header">
         <h1>Enzo Enrique Ortiz</h1>
         <h3>A#234632456</h3>
@@ -12,6 +19,7 @@ export default function Dashboard() {
           <div className="case-status">
             <div className="case-status-header">
               <h2>Case Status</h2>
+              <h3>EDIT</h3>
             </div>
             <div className="case-status-contents">
               <h3>STATUS</h3>
@@ -20,6 +28,7 @@ export default function Dashboard() {
           <div className="exception">
             <div className="exception-header">
               <h2>Exception</h2>
+              <h3>EDIT</h3>
             </div>
             <div className="exception-contents">
               <h2>Enter notes here</h2>
@@ -30,6 +39,13 @@ export default function Dashboard() {
           <div className="demographics">
             <div className="demographics-header">
               <h2>Demographics</h2>
+              <h3
+                onClick={() =>
+                  setEditDemographicsModalOpen(!editDemographicsModalOpen)
+                }
+              >
+                EDIT
+              </h3>
             </div>
             <div className="demographics-content">
               <table>
@@ -54,6 +70,7 @@ export default function Dashboard() {
           <div className="sponsor">
             <div className="sponsor-header">
               <h2>Sponsor</h2>
+              <h3>EDIT</h3>
             </div>
             <div className="sponsor-contents">
               <table>
@@ -78,9 +95,11 @@ export default function Dashboard() {
           <div className="smarty-streets">
             <div className="smarty-streets-header">
               <h2>Utilities</h2>
+              <h3>EDIT</h3>
             </div>
             <div className="smarty-streets-contents">
               <button>Smarty Streets</button>
+              <button>Release Request</button>
             </div>
           </div>
         </div>
@@ -88,6 +107,7 @@ export default function Dashboard() {
           <div className="taskbar">
             <div className="task-header">
               <h2>Taskbar</h2>
+              <h3>EDIT</h3>
             </div>
             <div className="tasks">
               <table>
