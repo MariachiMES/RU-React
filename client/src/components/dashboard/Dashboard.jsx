@@ -7,8 +7,12 @@ import EditStatusModal from "../EditStatusModal/EditStatusModal";
 import EditTasksModal from "../EditTasks/EditTasksModal";
 import ReleaseRequestModal from "../ReleaseRequestModal/ReleaseRequestModal";
 import SmartyStreets from "../SmartyStreetsModal/SmartyStreets";
+import Navbar from "../navbar/Navbar";
+import Menu from "../menu/Menu";
+
 import { useState } from "react";
 export default function Dashboard() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [smartyStreetsOpen, setSmartyStreetsOpen] = useState(false);
   const [releaseRequestOpen, setReleaseRequestOpen] = useState(false);
   const [editTasksModalOpen, setEditTasksModalOpen] = useState(false);
@@ -21,6 +25,7 @@ export default function Dashboard() {
     useState(false);
   return (
     <div className="dashboard">
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Menu>
       <SmartyStreets
         smartyStreetsOpen={smartyStreetsOpen}
         setSmartyStreetsOpen={setSmartyStreetsOpen}
@@ -53,6 +58,7 @@ export default function Dashboard() {
         editSponsorModalOpen={editSponsorModalOpen}
         setEditSponsorModalOpen={setEditSponsorModalOpen}
       />
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
       <div className="header">
         <h1>Enzo Enrique Ortiz</h1>
         <h3>A#234632456</h3>

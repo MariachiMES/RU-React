@@ -7,7 +7,9 @@ export default function Login() {
         <div className="left">
           <h1>Reunification Flow</h1>
           <h3>Case Manager Supplemental Worflow Platform</h3>
-          <h2>SIGN-UP</h2>
+          <a href="/signup">
+            <h2>SIGN-UP</h2>
+          </a>
         </div>
         <div className="right">
           <div className="titles">
