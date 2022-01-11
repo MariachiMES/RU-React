@@ -20,38 +20,34 @@ export default function EditSponsorModal({
             </div>
             <div className="modal-form-body">
               <form method="POST">
-                <h3>A#</h3>
+                <h3>Name</h3>
                 <input
                   type="text"
                   className="a-number"
-                  placeholder="A Number"
+                  placeholder="Sponsor's Full Name"
                 />
-                <h3>Full Name</h3>
+                <h3>Address</h3>
                 <input
                   type="text"
                   className="full-name"
-                  placeholder="Enter UAC's Full Name"
+                  placeholder="Enter Street Address"
                 />
-                <h3>DOB</h3>
-                <input
-                  type="text"
-                  className="dob"
-                  placeholder="Enter UAC's Date of Birth"
-                />
-                <h3>Country of Origin</h3>
-                <input
-                  type="text"
-                  className="coo"
-                  placeholder="Enter UAC's Country of Origin"
-                />
-                <h3>Date Admitted</h3>
+                <h3>City</h3>
+                <input type="text" className="dob" placeholder="City" />
+                <h3>State</h3>
+                <input type="text" className="coo" placeholder="State" />
+                <h3>Zip</h3>
                 <input
                   type="text"
                   className="date-admitted"
-                  placeholder="Date of Intake"
+                  placeholder="Zip Code"
                 />
-                <h3>Gender</h3>
-                <input type="text" className="Gender" placeholder="Gender" />
+                <h3>Relationship</h3>
+                <input
+                  type="text"
+                  className="Gender"
+                  placeholder="Relationship To UAC"
+                />
               </form>
             </div>
             <div className="modal-form-footer">

@@ -135,14 +135,13 @@ export default function Dashboard() {
               <table>
                 <tr>
                   <td>Name:</td>
-                  <td>Relationship:</td>
+                  <td>City:</td>
                 </tr>
                 <tr>
                   <td>Address:</td>
-                  <td>City:</td>
+                  <td>Relationship:</td>
                 </tr>
                 <tr>
-                  <td>City:</td>
                   <td>State:</td>
                 </tr>
                 <tr>

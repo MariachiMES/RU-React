@@ -20,38 +20,114 @@ export default function EditTasksModal({
             </div>
             <div className="modal-form-body">
               <form method="POST">
-                <h3>A#</h3>
+                <h3>Sponsor Assessment</h3>
                 <input
                   type="text"
                   className="a-number"
-                  placeholder="A Number"
+                  placeholder="Date Received"
                 />
-                <h3>Full Name</h3>
+                <h3>FRP</h3>
                 <input
                   type="text"
                   className="full-name"
-                  placeholder="Enter UAC's Full Name"
+                  placeholder="Date Received"
                 />
-                <h3>DOB</h3>
+                <h3>ARI</h3>
                 <input
                   type="text"
                   className="dob"
-                  placeholder="Enter UAC's Date of Birth"
+                  placeholder="Date Received"
                 />
-                <h3>Country of Origin</h3>
+                <h3>Proof of Relationship</h3>
                 <input
                   type="text"
                   className="coo"
-                  placeholder="Enter UAC's Country of Origin"
+                  placeholder="Date Received"
                 />
-                <h3>Date Admitted</h3>
+                <h3>Proof of Address</h3>
                 <input
                   type="text"
                   className="date-admitted"
-                  placeholder="Date of Intake"
+                  placeholder="Date Received"
                 />
-                <h3>Gender</h3>
-                <input type="text" className="Gender" placeholder="Gender" />
+                <h3>LOD</h3>
+                <input
+                  type="text"
+                  className="Gender"
+                  placeholder="Date Received"
+                />
+                <h3>LOPC</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Received"
+                />
+                <h3>Sponsor Background Check</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Completed"
+                />
+                <h3>Sponsor ID</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Received"
+                />
+                <h3>Sponsor FP</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Taken"
+                />
+                <h3>HHM ID</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Received"
+                />
+                <h3>HHM Background Check</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Completed"
+                />
+                <h3>Sex-Offender Check</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Completed"
+                />
+                <h3>Caregiver Phone Call</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date Completed"
+                />
+                <h3>Prior Sponsorship</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date of Inquiry"
+                />
+                <h3>Previous Address Used</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date of Inquiry"
+                />
+                <h3>Criminal History</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date of Inquiry"
+                />
+                <h3>CA/N Check Requested</h3>
+                <input
+                  type="text"
+                  className="date-admitted"
+                  placeholder="Date of Request"
+                />
               </form>
             </div>
             <div className="modal-form-footer">

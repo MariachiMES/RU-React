@@ -24,25 +24,25 @@ export default function EditStatusModal({
                 <input
                   type="text"
                   className="a-number"
-                  placeholder="A Number"
+                  placeholder="Date Submitted"
                 />
                 <h3>Remanded</h3>
                 <input
                   type="text"
                   className="full-name"
-                  placeholder="Enter UAC's Full Name"
+                  placeholder="Date Remanded"
                 />
                 <h3>Approved</h3>
                 <input
                   type="text"
                   className="dob"
-                  placeholder="Enter UAC's Date of Birth"
+                  placeholder="Date Approved"
                 />
                 <h3>Discharged</h3>
                 <input
                   type="text"
                   className="dob"
-                  placeholder="Enter UAC's Date of Birth"
+                  placeholder="Date Discharged"
                 />
               </form>
             </div>

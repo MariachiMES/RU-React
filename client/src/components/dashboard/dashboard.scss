@@ -46,6 +46,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .case-status-header {
           display: flex;
@@ -96,6 +97,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .exception-contents {
           color: white;
@@ -143,6 +145,8 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+
         .demographics-content {
           margin-top: 10px;
           table {
@@ -193,6 +197,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .sponsor-contents {
           table {
@@ -243,6 +248,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .smarty-streets-contents {
           justify-content: center;
@@ -305,6 +311,7 @@
         border-radius: 20px;
         flex-direction: column;
         border-radius: 20px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .task-header {
           display: flex;
