@@ -1,18 +1,21 @@
 import React from "react";
-import "./newUacModal.scss";
+import "./SmartyStreets.scss";
 
-export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
+export default function SmartyStreets({
+  smartyStreetsOpen,
+  setSmartyStreetsOpen,
+}) {
   return (
     <div>
-      <div className={"modal " + (newUacModalOpen && "active")}>
+      <div className={"smarty-modal " + (smartyStreetsOpen && "active")}>
         <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">
               <div className="modal-form-header-right">
-                <h2>Add New UAC</h2>
+                <h2>Smarty Streets</h2>
               </div>
               <div className="modal-form-header-left">
-                <h2 onClick={() => setNewUacModalOpen(false)}>X</h2>
+                <h2 onClick={() => setSmartyStreetsOpen(false)}>X</h2>
               </div>
             </div>
             <div className="modal-form-body">

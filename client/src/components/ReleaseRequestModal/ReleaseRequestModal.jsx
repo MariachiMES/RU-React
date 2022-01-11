@@ -1,18 +1,21 @@
 import React from "react";
-import "./newUacModal.scss";
+import "./ReleaseRequestModal.scss";
 
-export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
+export default function ReleaseRequestModal({
+  releaseRequestOpen,
+  setReleaseRequestOpen,
+}) {
   return (
     <div>
-      <div className={"modal " + (newUacModalOpen && "active")}>
+      <div className={"release-modal " + (releaseRequestOpen && "active")}>
         <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">
               <div className="modal-form-header-right">
-                <h2>Add New UAC</h2>
+                <h2>Release Request</h2>
               </div>
               <div className="modal-form-header-left">
-                <h2 onClick={() => setNewUacModalOpen(false)}>X</h2>
+                <h2 onClick={() => setReleaseRequestOpen(false)}>X</h2>
               </div>
             </div>
             <div className="modal-form-body">

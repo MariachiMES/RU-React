@@ -7,7 +7,9 @@ export default function EditExceptionModal({
 }) {
   return (
     <div>
-      <div className={"modal " + (editExceptionModalOpen && "active")}>
+      <div
+        className={"exception-modal " + (editExceptionModalOpen && "active")}
+      >
         <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">

@@ -1,54 +1,49 @@
 import React from "react";
-import "./newUacModal.scss";
+import "./EditStatusModal.scss";
 
-export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
+export default function EditStatusModal({
+  editStatusModalOpen,
+  setEditStatusModalOpen,
+}) {
   return (
     <div>
-      <div className={"modal " + (newUacModalOpen && "active")}>
+      <div className={"status-modal " + (editStatusModalOpen && "active")}>
         <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">
               <div className="modal-form-header-right">
-                <h2>Add New UAC</h2>
+                <h2>Edit Status</h2>
               </div>
               <div className="modal-form-header-left">
-                <h2 onClick={() => setNewUacModalOpen(false)}>X</h2>
+                <h2 onClick={() => setEditStatusModalOpen(false)}>X</h2>
               </div>
             </div>
             <div className="modal-form-body">
               <form method="POST">
-                <h3>A#</h3>
+                <h3>Submitted</h3>
                 <input
                   type="text"
                   className="a-number"
                   placeholder="A Number"
                 />
-                <h3>Full Name</h3>
+                <h3>Remanded</h3>
                 <input
                   type="text"
                   className="full-name"
                   placeholder="Enter UAC's Full Name"
                 />
-                <h3>DOB</h3>
+                <h3>Approved</h3>
                 <input
                   type="text"
                   className="dob"
                   placeholder="Enter UAC's Date of Birth"
                 />
-                <h3>Country of Origin</h3>
+                <h3>Discharged</h3>
                 <input
                   type="text"
-                  className="coo"
-                  placeholder="Enter UAC's Country of Origin"
+                  className="dob"
+                  placeholder="Enter UAC's Date of Birth"
                 />
-                <h3>Date Admitted</h3>
-                <input
-                  type="text"
-                  className="date-admitted"
-                  placeholder="Date of Intake"
-                />
-                <h3>Gender</h3>
-                <input type="text" className="Gender" placeholder="Gender" />
               </form>
             </div>
             <div className="modal-form-footer">

@@ -7,7 +7,11 @@ export default function EditDemographicsModal({
 }) {
   return (
     <div>
-      <div className={"modal " + (editDemographicsModalOpen && "active")}>
+      <div
+        className={
+          "demographic-modal " + (editDemographicsModalOpen && "active")
+        }
+      >
         <div className="modal-background">
           <div className="modal-form">
             <div className="modal-form-header">
