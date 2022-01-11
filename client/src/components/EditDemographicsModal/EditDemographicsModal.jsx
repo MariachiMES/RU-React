@@ -61,10 +61,12 @@ export default function EditDemographicsModal({
                   placeholder="Number of SIRs"
                 />
                 <h3>SIR Narrative</h3>
-                <input
-                  type="textarea"
+                <textarea
+                  type="text"
                   className="sir-narrative"
                   value="SIR Narrative"
+                  rows="2"
+                  cols="50"
                 />
               </form>
             </div>

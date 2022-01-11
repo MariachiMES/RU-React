@@ -8,12 +8,11 @@
   display: flex;
   position: absolute;
   align-items: center;
-  justify-content: center;
   opacity: 0;
   .modal-background {
     height: 100vh;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(133, 113, 113, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,10 +23,10 @@
     .modal-form {
       color: white;
       height: 800px;
-      width: 800px;
+      width: 470px;
       background-color: $mainColor;
       display: flex;
-      border-radius: 10px;
+      border-radius: 25px;
       flex-direction: column;
       cursor: default;
 
@@ -72,17 +71,22 @@
           justify-content: space-evenly;
 
           h3 {
-            font-size: 26px;
+            font-size: 20px;
             text-align: left;
             margin: 0;
             color: lightblue;
           }
 
           input {
-            height: 50px;
+            height: 27px;
             margin-bottom: 10px;
             border-radius: 5px;
-            font-size: 25px;
+            font-size: 20px;
+          }
+          textarea {
+            border-radius: 5px;
+            font-size: 20px;
+            resize: none;
           }
         }
       }

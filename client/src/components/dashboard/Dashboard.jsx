@@ -1,15 +1,22 @@
 import "./dashboard.scss";
 import EditDemographicsModal from "../EditDemographicsModal/EditDemographicsModal";
+import EditExceptionModal from "../EditExceptionModal/EditExceptioinModal";
 import { useState } from "react";
 export default function Dashboard() {
   const [editDemographicsModalOpen, setEditDemographicsModalOpen] =
     useState(false);
+  const [editExceptionModalOpen, setEditExceptionModalOpen] = useState(false);
   return (
     <div className="dashboard">
+      <EditExceptionModal
+        editExceptionModalOpen={editExceptionModalOpen}
+        setEditExceptionModalOpen={setEditExceptionModalOpen}
+      />
       <EditDemographicsModal
         editDemographicsModalOpen={editDemographicsModalOpen}
         setEditDemographicsModalOpen={setEditDemographicsModalOpen}
       />
+
       <div className="header">
         <h1>Enzo Enrique Ortiz</h1>
         <h3>A#234632456</h3>
@@ -28,7 +35,13 @@ export default function Dashboard() {
           <div className="exception">
             <div className="exception-header">
               <h2>Exception</h2>
-              <h3>EDIT</h3>
+              <h3
+                onClick={() =>
+                  setEditExceptionModalOpen(!editExceptionModalOpen)
+                }
+              >
+                EDIT
+              </h3>
             </div>
             <div className="exception-contents">
               <h2>Enter notes here</h2>
