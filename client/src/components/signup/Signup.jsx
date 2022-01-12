@@ -26,7 +26,6 @@ export default function Signup() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addCaseManager({
@@ -34,10 +33,10 @@ export default function Signup() {
       });
 
       Auth.login(data.addCaseManager.token);
+      window.location.replace("/");
     } catch (e) {
       console.error(e);
     }
-    setFormState({ username: "", email: "", password: "" });
   };
   return (
     <div className="signup">
@@ -90,7 +89,7 @@ export default function Signup() {
                 <button type="submit">Sign-Up</button>
               </form>
             )}
-            {error && <div className="">{error.message}</div>}
+            {error && <div className="error">{error.message}</div>}
           </div>
         </div>
       </div>
