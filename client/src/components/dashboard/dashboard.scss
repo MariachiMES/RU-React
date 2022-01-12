@@ -4,6 +4,7 @@
   width: 100%;
   height: 100vh;
   background-color: $mainColor;
+  margin-top: 71px;
 
   .header {
     align-items: center;
@@ -46,6 +47,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .case-status-header {
           display: flex;
@@ -59,6 +61,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            cursor: pointer;
+            margin-right: 20px;
+            color: rgb(255, 57, 139);
           }
         }
         .case-status-contents {
@@ -86,6 +98,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .exception-contents {
           color: white;
@@ -105,6 +118,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            margin-right: 20px;
+            cursor: pointer;
+            color: rgb(255, 57, 139);
           }
         }
       }
@@ -123,6 +146,8 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+
         .demographics-content {
           margin-top: 10px;
           table {
@@ -153,6 +178,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            margin-right: 20px;
+            cursor: pointer;
+            color: rgb(255, 57, 139);
           }
         }
       }
@@ -163,6 +198,7 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .sponsor-contents {
           table {
@@ -193,6 +229,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            margin-right: 20px;
+            cursor: pointer;
+            color: rgb(255, 57, 139);
           }
         }
       }
@@ -203,9 +249,10 @@
         margin: 10px;
         border-radius: 20px;
         flex-direction: column;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .smarty-streets-contents {
-          justify-contents: center;
+          justify-content: center;
           align-items: center;
           margin: auto;
 
@@ -214,11 +261,12 @@
             height: 2rem;
             border: none;
             border-radius: 20px;
-            width: 150px;
+            width: 200px;
             font-size: 18px;
             font-weight: 700;
             color: black;
             cursor: pointer;
+            margin: 40px;
           }
         }
 
@@ -234,6 +282,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            cursor: pointer;
+            margin-right: 20px;
+            color: rgb(255, 57, 139);
           }
         }
       }
@@ -254,6 +312,7 @@
         border-radius: 20px;
         flex-direction: column;
         border-radius: 20px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
         .task-header {
           display: flex;
@@ -267,6 +326,16 @@
             color: white;
             margin-top: 20px;
             font-size: 28px;
+            flex: 0.8;
+            text-align: left;
+            margin-left: 20px;
+          }
+          h3 {
+            text-align: right;
+            flex: 0.2;
+            cursor: pointer;
+            margin-right: 20px;
+            color: rgb(255, 57, 139);
           }
         }
         .tasks {

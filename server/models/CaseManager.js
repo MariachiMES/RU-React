@@ -1,18 +1,16 @@
-const { Schema, model } = require("mongoose");
+const Mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const caseManagerSchema = new Schema({
-  name: {
+const caseManagerSchema = new Mongoose.Schema({
+  Name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
-  email: {
+  Email: {
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Not a valid Email Address!"],
   },
   password: {
     type: String,
@@ -21,18 +19,18 @@ const caseManagerSchema = new Schema({
   },
   is_teamLead: [
     {
+      type: Boolean,
+      trim: true,
+      default: false,
+    },
+  ],
+
+  caseload: [
+    {
       type: String,
       trim: true,
     },
   ],
-  team_lead: {
-    type: String,
-    trim: true,
-  },
-  caseload: {
-    type: String,
-    trim: true,
-  },
 });
 
 caseManagerSchema.pre("save", async function (next) {
@@ -48,6 +46,6 @@ caseManagerSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const CaseManager = model("Profile", caseManagerSchema);
+const CaseManager = Mongoose.model("CaseManager", caseManagerSchema);
 
 module.exports = CaseManager;

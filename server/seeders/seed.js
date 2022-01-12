@@ -1,6 +1,6 @@
 const db = require("../config/connection");
 const { CaseManager } = require("../models");
-const caseManagerSeeds = require("./profileSeeds.json");
+const caseManagerSeeds = require("./caseManagerSeeds.json");
 
 db.once("open", async () => {
   try {

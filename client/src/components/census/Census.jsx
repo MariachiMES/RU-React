@@ -1,9 +1,17 @@
 import "./census.scss";
 import NewUacModal from "../newUACModal/NewUacModal";
+import Navbar from "../navbar/Navbar";
+import { useState } from "react";
+import Menu from "../menu/Menu";
 
-export default function Census({ newUacModalOpen, setNewUacModalOpen }) {
+export default function Census() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [newUacModalOpen, setNewUacModalOpen] = useState(false);
+
   return (
     <div className="census">
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Menu>
       <NewUacModal
         newUacModalOpen={newUacModalOpen}
         setNewUacModalOpen={setNewUacModalOpen}

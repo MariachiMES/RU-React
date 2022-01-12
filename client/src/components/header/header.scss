@@ -1,7 +1,6 @@
 @import "../../global.scss";
 
 .header {
-  top: 71px;
   position: relative;
   background-color: $mainColor;
   display: flex;
@@ -14,10 +13,10 @@
     background-color: lightgreen;
     display: flex;
     padding: 0;
-    background-image: url("../../../public/images/kids.jpeg");
+    background-image: url("../../../public/images/reunify.jpg");
     background-repeat: none;
     background-size: cover;
-    background-position-y: -200px;
+    background-position-y: -350px;
   }
 
   .img {

@@ -1,0 +1,126 @@
+@import "../../global.scss";
+
+.rr-modal {
+  visibility: hidden;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  .modal-background {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(0.2rem);
+    transition: 0.5s;
+
+    .modal-form {
+      color: white;
+      height: 800px;
+      width: 800px;
+      background-color: $mainColor;
+      display: flex;
+      border-radius: 10px;
+      flex-direction: column;
+      cursor: default;
+
+      .modal-form-header {
+        display: flex;
+        width: 100%;
+        height: 70px;
+        color: lightblue;
+        border-bottom: 3px solid cornflowerblue;
+
+        .modal-form-header-right {
+          margin-left: 20px;
+          align-items: left;
+          text-align: left;
+          display: flex;
+          width: 100%;
+        }
+        .modal-form-header-left {
+          text-align: right;
+          align-items: right;
+          justify-content: right;
+          display: flex;
+          width: 100%;
+          margin-right: 20px;
+
+          h2 {
+            cursor: pointer;
+          }
+        }
+      }
+      .modal-form-body {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(24, 50, 88);
+        overflow: scroll;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          margin: 30px;
+          justify-content: space-evenly;
+
+          h3 {
+            font-size: 20px;
+            text-align: left;
+            margin: 0;
+            color: lightblue;
+          }
+
+          input {
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+          }
+          textarea {
+            border-radius: 5px;
+            font-size: 20px;
+            resize: none;
+          }
+        }
+      }
+      .modal-form-footer {
+        height: 70px;
+        border-top: 3px solid cornflowerblue;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        button {
+          height: 40px;
+          width: 100px;
+          border: none;
+          background-color: lime;
+          border-radius: 20px;
+          color: black;
+          font-size: 25px;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: 0px 0px 10px rgb(195, 250, 178);
+            color: white;
+            transition: 0.5s ease-in;
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+  }
+}

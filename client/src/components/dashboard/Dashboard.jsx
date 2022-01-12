@@ -1,8 +1,63 @@
 import "./dashboard.scss";
+import EditExceptionModal from "../EditExceptionModal/EditExceptioinModal";
+import EditDemographicsModal from "../EditDemographicsModal/EditDemographicsModal";
+import EditReleaseRequestModal from "../EditReleaseRequestModal/EditReleaseRequestModal";
+import EditSponsorModal from "../EditSponsorModal/EditSponsorModal";
+import EditStatusModal from "../EditStatusModal/EditStatusModal";
+import EditTasksModal from "../EditTasks/EditTasksModal";
+import ReleaseRequestModal from "../ReleaseRequestModal/ReleaseRequestModal";
+import SmartyStreets from "../SmartyStreetsModal/SmartyStreets";
+import Navbar from "../navbar/Navbar";
+import Menu from "../menu/Menu";
 
+import { useState } from "react";
 export default function Dashboard() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [smartyStreetsOpen, setSmartyStreetsOpen] = useState(false);
+  const [releaseRequestOpen, setReleaseRequestOpen] = useState(false);
+  const [editTasksModalOpen, setEditTasksModalOpen] = useState(false);
+  const [editStatusModalOpen, setEditStatusModalOpen] = useState(false);
+  const [editSponsorModalOpen, setEditSponsorModalOpen] = useState(false);
+  const [editDemographicsModalOpen, setEditDemographicsModalOpen] =
+    useState(false);
+  const [editExceptionModalOpen, setEditExceptionModalOpen] = useState(false);
+  const [editReleaseRequestModalOpen, setReleaseRequestModalOpen] =
+    useState(false);
   return (
     <div className="dashboard">
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Menu>
+      <SmartyStreets
+        smartyStreetsOpen={smartyStreetsOpen}
+        setSmartyStreetsOpen={setSmartyStreetsOpen}
+      />
+      <ReleaseRequestModal
+        releaseRequestOpen={releaseRequestOpen}
+        setReleaseRequestOpen={setReleaseRequestOpen}
+      />
+      <EditTasksModal
+        editTasksModalOpen={editTasksModalOpen}
+        setEditTasksModalOpen={setEditTasksModalOpen}
+      />
+      <EditStatusModal
+        editStatusModalOpen={editStatusModalOpen}
+        setEditStatusModalOpen={setEditStatusModalOpen}
+      />
+      <EditExceptionModal
+        editExceptionModalOpen={editExceptionModalOpen}
+        setEditExceptionModalOpen={setEditExceptionModalOpen}
+      />
+      <EditDemographicsModal
+        editDemographicsModalOpen={editDemographicsModalOpen}
+        setEditDemographicsModalOpen={setEditDemographicsModalOpen}
+      />
+      <EditReleaseRequestModal
+        editReleaseRequestModalOpen={editReleaseRequestModalOpen}
+        setReleaseRequestModalOpen={setReleaseRequestModalOpen}
+      />
+      <EditSponsorModal
+        editSponsorModalOpen={editSponsorModalOpen}
+        setEditSponsorModalOpen={setEditSponsorModalOpen}
+      />
       <div className="header">
         <h1>Enzo Enrique Ortiz</h1>
         <h3>A#234632456</h3>
@@ -12,6 +67,13 @@ export default function Dashboard() {
           <div className="case-status">
             <div className="case-status-header">
               <h2>Case Status</h2>
+              <h3
+                onClick={() => {
+                  setEditStatusModalOpen(!editStatusModalOpen);
+                }}
+              >
+                EDIT
+              </h3>
             </div>
             <div className="case-status-contents">
               <h3>STATUS</h3>
@@ -20,6 +82,13 @@ export default function Dashboard() {
           <div className="exception">
             <div className="exception-header">
               <h2>Exception</h2>
+              <h3
+                onClick={() =>
+                  setEditExceptionModalOpen(!editExceptionModalOpen)
+                }
+              >
+                EDIT
+              </h3>
             </div>
             <div className="exception-contents">
               <h2>Enter notes here</h2>
@@ -30,6 +99,13 @@ export default function Dashboard() {
           <div className="demographics">
             <div className="demographics-header">
               <h2>Demographics</h2>
+              <h3
+                onClick={() =>
+                  setEditDemographicsModalOpen(!editDemographicsModalOpen)
+                }
+              >
+                EDIT
+              </h3>
             </div>
             <div className="demographics-content">
               <table>
@@ -54,19 +130,23 @@ export default function Dashboard() {
           <div className="sponsor">
             <div className="sponsor-header">
               <h2>Sponsor</h2>
+              <h3
+                onClick={() => setEditSponsorModalOpen(!editSponsorModalOpen)}
+              >
+                EDIT
+              </h3>
             </div>
             <div className="sponsor-contents">
               <table>
                 <tr>
                   <td>Name:</td>
-                  <td>Relationship:</td>
+                  <td>City:</td>
                 </tr>
                 <tr>
                   <td>Address:</td>
-                  <td>City:</td>
+                  <td>Relationship:</td>
                 </tr>
                 <tr>
-                  <td>City:</td>
                   <td>State:</td>
                 </tr>
                 <tr>
@@ -77,10 +157,28 @@ export default function Dashboard() {
           </div>
           <div className="smarty-streets">
             <div className="smarty-streets-header">
-              <h2>Utilities</h2>
+              <h2>Utilities/Release Request</h2>
+              <h3
+                onClick={() =>
+                  setReleaseRequestModalOpen(!editReleaseRequestModalOpen)
+                }
+              >
+                EDIT
+              </h3>
             </div>
             <div className="smarty-streets-contents">
-              <button>Smarty Streets</button>
+              <button
+                className="smarty-button"
+                onClick={() => setSmartyStreetsOpen(!smartyStreetsOpen)}
+              >
+                Smarty Streets
+              </button>
+              <button
+                className="rr-button"
+                onClick={() => setReleaseRequestOpen(!releaseRequestOpen)}
+              >
+                Release Request
+              </button>
             </div>
           </div>
         </div>
@@ -88,6 +186,9 @@ export default function Dashboard() {
           <div className="taskbar">
             <div className="task-header">
               <h2>Taskbar</h2>
+              <h3 onClick={() => setEditTasksModalOpen(!editTasksModalOpen)}>
+                EDIT
+              </h3>
             </div>
             <div className="tasks">
               <table>

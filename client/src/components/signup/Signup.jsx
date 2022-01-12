@@ -8,7 +8,9 @@ export default function Signup() {
           <div className="left">
             <h1>Welcome!!</h1>
             <h3>If you are an existing user, you may sign-in below</h3>
-            <h2>Login</h2>
+            <a href="/">
+              <h2>Login</h2>
+            </a>
           </div>
           <div className="right">
             <div className="titles">

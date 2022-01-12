@@ -1,18 +1,16 @@
 [
   {
-    "name": "David Ortiz",
-    "email": "davidjortizmusic@gmail.com",
+    "Name": "David Ortiz",
+    "Email": "davidjortizmusic@gmail.com",
     "password": "password01",
     "is_team_lead": "true",
-    "team_lead": "",
     "caseload": ""
   },
   {
-    "name": "Daniel Burford",
-    "email": "daniel@gmail.com",
+    "Name": "Daniel Burford",
+    "Email": "daniel@gmail.com",
     "password": "password02",
     "is_team_lead": "true",
-    "team_lead": "",
     "caseload": ""
   }
 ]

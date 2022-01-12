@@ -2,9 +2,7 @@ const bodyParser = require("body-parser");
 const { ApolloServer } = require("apollo-server-express");
 const express = require("express");
 const path = require("path");
-
-const mongoose = require("mongoose");
-
+const db = require("./config/connection");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("./models/user");
@@ -16,13 +14,25 @@ const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
 app.use(bodyParser.json(), urlencodedParser);
 
-const dbURI = 
+const PORT = process.env.PORT || 5001;
+const { typeDefs, resolvers } = require("./schemas");
 
-mongoose.connect( dbURI, { useNewUrlParser:true, useUnifiedTopology:true})
-.then((res) => {
-  app.listen(process.env.PORT, () => console.log( "server is live"))
-})
-.catch(err => console.log(err))
+const app = express();
+const server = new ApolloServer({
+  introspection: true,
+  typeDefs,
+  resolvers,
+
+  formatError: (error) => error,
+
+  context: ({ req, res }) => {
+    return {
+      req,
+      res,
+    };
+  },
+});
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -131,10 +141,11 @@ app.get("/getUsername", verifyJWT, (req, res) =>{
 })
 server.applyMiddleware({ app, path: "/graphql" });
 
-app.listen(4000, () => {
-  console.log(`
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`
     Server is running!
-    Listening on port 4000
-    Explore at http://localhost:4000/graphql
-  `);
+    Listening on port ${PORT}
+    Explore at http://localhost:${PORT}${server.graphqlPath}`);
+  });
 });
