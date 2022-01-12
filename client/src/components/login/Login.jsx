@@ -5,7 +5,7 @@ export default function Login() {
     <div className="login">
       <div className="wrapper">
         <div className="left">
-          <h1>Reunification Flow</h1>
+          <h1>Reunify</h1>
           <h3>Case Manager Supplemental Worflow Platform</h3>
           <a href="/signup">
             <h2>SIGN-UP</h2>

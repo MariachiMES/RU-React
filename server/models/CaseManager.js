@@ -11,7 +11,6 @@ const caseManagerSchema = new Mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Not a valid Email Address!"],
   },
   password: {
     type: String,
@@ -25,7 +24,6 @@ const caseManagerSchema = new Mongoose.Schema({
       default: false,
     },
   ],
-  team_lead: Mongoose.SchemaTypes.ObjectId,
 
   caseload: [
     {

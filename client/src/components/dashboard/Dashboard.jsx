@@ -58,7 +58,6 @@ export default function Dashboard() {
         editSponsorModalOpen={editSponsorModalOpen}
         setEditSponsorModalOpen={setEditSponsorModalOpen}
       />
-      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
       <div className="header">
         <h1>Enzo Enrique Ortiz</h1>
         <h3>A#234632456</h3>
