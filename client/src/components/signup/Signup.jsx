@@ -89,7 +89,7 @@ export default function Signup() {
                 <button type="submit">Sign-Up</button>
               </form>
             )}
-            {error && <div className="error">{error.message}</div>}
+            {error && <div style={{ color: "red" }}>{error.message}</div>}
           </div>
         </div>
       </div>
