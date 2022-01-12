@@ -2,12 +2,12 @@ const Mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const caseManagerSchema = new Mongoose.Schema({
-  Name: {
+  username: {
     type: String,
     required: true,
     trim: true,
   },
-  Email: {
+  email: {
     type: String,
     required: true,
     unique: true,

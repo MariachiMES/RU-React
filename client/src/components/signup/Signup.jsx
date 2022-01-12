@@ -6,12 +6,14 @@ import { ADD_CASE_MANAGER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 export default function Signup() {
+  const [addCaseManager, { error, data }] = useMutation(ADD_CASE_MANAGER);
+
+  //set initial form state//
   const [formState, setFormState] = useState({
     username: "",
     email: "",
     password: "",
   });
-  const [addCaseManager, { error, data }] = useMutation(ADD_CASE_MANAGER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,6 +37,7 @@ export default function Signup() {
     } catch (e) {
       console.error(e);
     }
+    setFormState({ username: "", email: "", password: "" });
   };
   return (
     <div className="signup">
@@ -63,7 +66,7 @@ export default function Signup() {
                   type="text"
                   name="username"
                   className="username"
-                  value={formState.name}
+                  value={formState.username}
                   onChange={handleChange}
                 ></input>
                 Email:
@@ -72,14 +75,16 @@ export default function Signup() {
                   type="text"
                   name="email"
                   className="email"
+                  value={formState.email}
+                  onChange={handleChange}
                 ></input>
                 Password:
                 <input
-                  placeholder="Password"
+                  placeholder="password"
                   type="password"
                   name="password"
                   className="password"
-                  value={formState.email}
+                  value={formState.password}
                   onChange={handleChange}
                 ></input>
                 <button type="submit">Sign-Up</button>
