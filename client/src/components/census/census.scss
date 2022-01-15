@@ -13,7 +13,10 @@
     display: flex;
     width: 100%;
     margin-bottom: 30px;
-
+    @include for-phone-only{
+      display: flex;
+      flex-direction: column;
+    }
     .census-header-left {
       align-items: left;
       justify-content: space-evenly;
@@ -23,6 +26,8 @@
       border-radius: 0px 20px 20px 0px;
       padding-top: 10px;
       box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+      height: 85px;
+      
       .total {
         color: white;
         h3 {
@@ -68,11 +73,15 @@
       text-align: right;
       margin: auto;
       margin-right: 40px;
+      @include for-phone-only{
+        display: flex;
+      }
       h1 {
         color: white;
         margin-right: 40px;
         font-size: 40px;
         cursor: pointer;
+
       }
       .discharged-btn {
         font-size: 25px;
@@ -85,6 +94,9 @@
         font-weight: 700;
         border-radius: 20px;
         box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+        @include for-phone-only{
+          flex-direction: column;
+        }
       }
       .logout-btn {
         width: 100%;
@@ -98,6 +110,9 @@
         border-radius: 20px;
         margin-right: 40px;
         box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+        @include for-phone-only{
+          flex-direction: column;
+        }
       }
     }
   }
@@ -106,6 +121,10 @@
     display: flex;
     text-align: center;
     padding: 20px;
+    margin-top: 150px;
+    @include for-phone-only{
+      width: 100%;
+    }
     tr {
       border-bottom: 1px cornflowerblue solid;
       width: 100vw;
@@ -128,5 +147,11 @@
         font-size: 20px;
       }
     }
+  }
+}
+.mobile-invisible{
+  @include for-phone-only{
+    visibility: hidden;
+    width: 100%;
   }
 }

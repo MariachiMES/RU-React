@@ -52,22 +52,22 @@ export default function Census() {
           <tr>
             <th>A#</th>
             <th>UAC</th>
-            <th>Case Manager</th>
-            <th>FRP</th>
-            <th>Sponsor Assessment</th>
-            <th>Submitted</th>
-            <th>Approved</th>
-            <th>Remanded</th>
+            <th className="mobile-invisible">Case Manager</th>
+            <th className="mobile-invisible">FRP</th>
+            <th className="mobile-invisible">Sponsor Assessment</th>
+            <th className="mobile-invisible">Submitted</th>
+            <th className="mobile-invisible">Approved</th>
+            <th className="mobile-invisible">Remanded</th>
           </tr>
           <tr>
             <td>233343540</td>
             <td>Enzo Enrique Ortiz De La Madre Y Media</td>
-            <td>David Ortiz</td>
-            <td>11/23/2021</td>
-            <td>11/23/2021</td>
-            <td>11/23/2021</td>
-            <td>11/23/2021</td>
-            <td>11/23/2021</td>
+            <td className="mobile-invisible">David Ortiz</td>
+            <td className="mobile-invisible">11/23/2021</td>
+            <td className="mobile-invisible">11/23/2021</td>
+            <td className="mobile-invisible">11/23/2021</td>
+            <td className="mobile-invisible">11/23/2021</td>
+            <td className="mobile-invisible">11/23/2021</td>
           </tr>
         </table>
       </div>
