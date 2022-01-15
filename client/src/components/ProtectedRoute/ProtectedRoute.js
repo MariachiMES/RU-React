@@ -1,30 +1,21 @@
-import React, {Component, useEffet, useState} from "react";
-import {Redirect, Route} from "react-router-dom";
-import PropTypes from "prop-types";
-import useToken from "../../useToken";
+import React, { Component, useEffet, useState } from "react";
+import { Redirect, Route } from "react-router-dom";
 
-const ProtectedRoute = ({component: Component, ...rest}) => {
-    const [loading, setLoading] = useState(true)
-    const token = useToken();
-
-    useEffect(() => {
-        if (token.checkedStorage) {
-            setLoading(false)
+function ProtectedRoute({ isAuth: isAuth, component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (isAuth) {
+          return <Component />;
+        } else {
+          return (
+            <Redirect to={{ pathname: "?", state: { from: props.location } }} />
+          );
         }
-    })
+      }}
+    />
+  );
 }
-return (
-    <div className="something">
-        {loading ? <loading thing doing stuff> : (
-            <Route 
-            {...rest}
-            render = {(props) =>
-            !token.expired && token.authority === "Case Manager" ? (
-                <Component {...props} />
-        ) : (
-            <Redirect to ="/"/>
-        )
-            }
-            />
-        )})
-    </div>
+
+export default ProtectedRoute;

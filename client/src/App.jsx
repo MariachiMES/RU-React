@@ -9,10 +9,10 @@ import { setContext } from "@apollo/client/link/context";
 import NewCaseManager from "./components/NewCaseManager/NewCaseManager";
 import Census from "./components/census/Census";
 import Dashboard from "./components/dashboard/Dashboard";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { useEffect } from "react";
 import Landing from "./components/Landing/Landing";
-
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 function App() {
   useEffect(() => {
     document.title = "Reunify";
@@ -43,14 +43,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="App">
-          <Route path="/" exact component={Landing}></Route>
-          <Route path="/signup" exact component={NewCaseManager}></Route>
-          <Route path="/Census" exact component={Census}></Route>
-          <Route exact path="/Dashboard">
-            <Dashboard />
-          </Route>
-        </div>
+        <Switch>
+          <div className="App">
+            <Route path="/" exact component={Landing}></Route>
+            <Route path="/signup" exact component={NewCaseManager}></Route>
+            <Route path="/Census" exact component={Census}></Route>
+            <Route exact path="/Dashboard">
+              <Dashboard />
+            </Route>
+          </div>
+        </Switch>
       </Router>
     </ApolloProvider>
   );

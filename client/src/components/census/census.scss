@@ -110,6 +110,7 @@
       border-bottom: 1px cornflowerblue solid;
       width: 100vw;
       display: flex;
+
       th {
         font-size: 25px;
         color: white;
@@ -117,6 +118,12 @@
         display: flex;
         text-align: left;
         margin-top: 10px;
+
+        @include mobile {
+          #mobile-invisible {
+            display: none;
+          }
+        }
       }
       td {
         color: white;

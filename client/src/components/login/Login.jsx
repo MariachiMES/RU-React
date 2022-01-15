@@ -71,6 +71,7 @@ export default function Login() {
             ></input>
             <button type="submit">FUGGIN LOGIN</button>
           </form>
+          {error && <div style={{ color: "red" }}>{error.message}</div>}
         </div>
       </div>
     </div>
