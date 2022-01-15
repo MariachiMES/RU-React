@@ -1,7 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type CaseManager {
+  type User {
     _id: ID
     username: String
     email: String
@@ -75,12 +75,12 @@ const typeDefs = gql`
   # Set up an Auth type to handle returning data from a profile creating or user login
   type Auth {
     token: ID!
-    caseManager: CaseManager
+    User: User
   }
 
   type Query {
-    casemanagers: [CaseManager]!
-    casemanager(caseManagerId: ID!): CaseManager
+    users: [User]!
+    user(UserId: ID!): User
     minors: [Minor]!
     minor(minorId: ID!): Minor
   }
@@ -88,10 +88,10 @@ const typeDefs = gql`
   type Mutation {
     # Set up mutations to handle creating a profile or logging into a profile and return Auth type
 
-    addCaseManager(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    removeCaseManager(caseManagerId: ID!): CaseManager
+    removeUser(UserId: ID!): User
 
     removeMinor(_id: ID!): Minor
 

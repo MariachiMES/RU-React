@@ -1,12 +1,12 @@
 import "./login.scss";
 import { useState } from "react";
-import { LOGIN_CASE_MANAGER } from "../../utils/mutations";
+import { LOGIN_USER } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth";
 
 export default function Login() {
   const [formData, setFormData] = useState({ password: "", email: "" });
-  const [loginCaseManager, { data, loading, error }] =
-    useMutation(LOGIN_CASE_MANAGER);
+  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
   //   variables: {
   //     email: formData.email,
   //     password: formData.password,
@@ -15,16 +15,25 @@ export default function Login() {
   //     console.log(login);
   //   },
   // });
+
   const handleLogin = async function (e) {
     e.preventDefault();
 
-    loginCaseManager({
-      variables: {
-        email: formData.email,
-        password: formData.password,
-      },
-    });
+    try {
+      const { data } = await loginUser({
+        variables: {
+          email: formData.email,
+          password: formData.password,
+        },
+      });
+      console.log(`WHY DON'T YOU WORK YOU SONOFABITCH ${data}`);
+      Auth.login(data.login.token);
+      window.location.replace("/Census");
+    } catch (err) {
+      console.error(err);
+    }
   };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -60,7 +69,7 @@ export default function Login() {
               type="password"
               className="password"
             ></input>
-            <input type="submit" id="login-btn"></input>
+            <button type="submit">FUGGIN LOGIN</button>
           </form>
         </div>
       </div>

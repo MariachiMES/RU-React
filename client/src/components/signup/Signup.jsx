@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./signup.scss";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { ADD_CASE_MANAGER } from "../../utils/mutations";
+import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 export default function Signup() {
-  const [addCaseManager, { error, data }] = useMutation(ADD_CASE_MANAGER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   //set initial form state//
   const [formState, setFormState] = useState({
@@ -28,11 +28,11 @@ export default function Signup() {
     event.preventDefault();
 
     try {
-      const { data } = await addCaseManager({
+      const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.addCaseManager.token);
+      Auth.login(data.addUser.token);
       window.location.replace("/");
     } catch (e) {
       console.log("this is not working at all, david");

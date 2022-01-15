@@ -1,16 +1,23 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { CaseManager, Minor } = require("../models");
+const { User, Minor } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    casemanagers: async () => {
-      return CaseManager.find();
+    users: async () => {
+      return User.find();
     },
 
-    casemanager: async (parent, { caseManagerId }) => {
-      return CaseManager.findOne({ _id: caseManagerId });
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select(
+          "-v -password"
+        );
+        return userData;
+      }
+      throw new AuthenticationError("you need to be logged in");
     },
+
     minors: async () => {
       return Minor.find();
     },
@@ -20,17 +27,17 @@ const resolvers = {
   },
 
   Mutation: {
-    addCaseManager: async (parent, { username, email, password }) => {
+    addUser: async (parent, { username, email, password }) => {
       console.log("add case manager mutation in schemas");
-      const caseManager = await CaseManager.create({
+      const user = await User.create({
         username,
         email,
         password,
       });
       console.log("MUTATION IN RESOLVERS LINE 25");
-      const token = signToken(caseManager);
+      const token = signToken(user);
 
-      return { token, caseManager };
+      return { token, user };
     },
 
     addMinor: async (parent, { uacname, a_number, intake, gender }) => {
@@ -44,20 +51,20 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      const caseManager = await CaseManager.findOne({ email });
+      const user = await User.findOne({ email });
 
-      if (!caseManager) {
-        throw new AuthenticationError("No profile with this email found!");
+      if (!user) {
+        throw new AuthenticationError("Incorrect Email or Password!");
       }
 
-      const correctPw = await CaseManager.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect password!");
+        throw new AuthenticationError("Incorrect email or password!");
       }
 
-      const token = signToken(profile);
-      return { token, profile };
+      const token = signToken(user);
+      return { token, user };
     },
 
     // addSkill: async (parent, { profileId, skill }) => {
@@ -75,7 +82,7 @@ const resolvers = {
 
     // },
     // removeSkill: async (parent, { profileId, skill }) => {
-    //   return CaseManager.findOneAndUpdate(
+    //   return User.findOneAndUpdate(
     //     { _id: profileId },
     //     { $pull: { skills: skill } },
     //     { new: true }

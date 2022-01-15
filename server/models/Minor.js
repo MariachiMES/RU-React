@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 // const dateFormat = require("../utils/dateFormat");
 
-const MinorSchema = new Schema({
+const minorSchema = new Schema({
   uacname: {
     type: String,
     required: true,
@@ -83,6 +83,6 @@ const MinorSchema = new Schema({
   sponsor_relationship: String,
 });
 
-const Minor = model("Minor", MinorSchema);
+const Minor = model("Minor", minorSchema);
 
 module.exports = Minor;
