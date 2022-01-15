@@ -35,6 +35,7 @@ export default function Signup() {
       Auth.login(data.addCaseManager.token);
       window.location.replace("/");
     } catch (e) {
+      console.log("this is not working at all, david");
       console.error(e);
     }
   };
@@ -86,7 +87,12 @@ export default function Signup() {
                   value={formState.password}
                   onChange={handleChange}
                 ></input>
-                <button type="submit">Sign-Up</button>
+                <button
+                  disabled={!(formState.email && formState.password)}
+                  type="submit"
+                >
+                  Sign-Up
+                </button>
               </form>
             )}
             {error && <div style={{ color: "red" }}>{error.message}</div>}

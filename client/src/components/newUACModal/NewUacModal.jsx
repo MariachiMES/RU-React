@@ -1,7 +1,43 @@
 import React from "react";
 import "./newUacModal.scss";
+import { useMutation } from "@apollo/client";
+import { ADD_MINOR } from "../../utils/mutations";
+import { useState } from "react";
+import Auth from "../../utils/auth";
 
 export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
+  const [addMinor, { error, data }] = useMutation(ADD_MINOR);
+  const [formState, setFormState] = useState({
+    uacname: "",
+    a_number: "",
+    intake: "",
+    gender: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addMinor({
+        variables: { ...formState },
+      });
+      Auth.login(data.addCaseManager.token);
+      window.location.replace("/");
+    } catch (e) {
+      console.log("this is not working at all, david");
+      console.error(e);
+    }
+  };
+
   return (
     <div>
       <div className={"modal " + (newUacModalOpen && "active")}>
@@ -16,43 +52,52 @@ export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
               </div>
             </div>
             <div className="modal-form-body">
-              <form method="POST">
-                <h3>A#</h3>
-                <input
-                  type="text"
-                  className="a-number"
-                  placeholder="A Number"
-                />
-                <h3>Full Name</h3>
-                <input
-                  type="text"
-                  className="full-name"
-                  placeholder="Enter UAC's Full Name"
-                />
-                <h3>DOB</h3>
-                <input
-                  type="text"
-                  className="dob"
-                  placeholder="Enter UAC's Date of Birth"
-                />
-                <h3>Country of Origin</h3>
-                <input
-                  type="text"
-                  className="coo"
-                  placeholder="Enter UAC's Country of Origin"
-                />
-                <h3>Date Admitted</h3>
-                <input
-                  type="text"
-                  className="date-admitted"
-                  placeholder="Date of Intake"
-                />
-                <h3>Gender</h3>
-                <input type="text" className="Gender" placeholder="Gender" />
-              </form>
+              {data ? (
+                <p>Success!</p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
+                  <h3>A#</h3>
+                  <input
+                    type="text"
+                    name="a_number"
+                    className="a-number"
+                    placeholder="A Number"
+                    value={formState.a_number}
+                    onChange={handleChange}
+                  />
+                  <h3>Full Name</h3>
+                  <input
+                    type="text"
+                    name="uacname"
+                    className="full-name"
+                    placeholder="Enter UAC's Full Name"
+                    value={formState.uacname}
+                    onChange={handleChange}
+                  />
+                  <h3>Date Admitted</h3>
+                  <input
+                    type="text"
+                    name="intake"
+                    className="date-admitted"
+                    placeholder="Date of Intake"
+                    value={formState.inake}
+                    onChange={handleChange}
+                  />
+                  <h3>Gender</h3>
+                  <input
+                    type="text"
+                    name="gender"
+                    className="Gender"
+                    placeholder="Gender"
+                    value={formState.gender}
+                    onChange={handleChange}
+                  />
+                </form>
+              )}
+              {error && <div style={{ color: "red" }}>{error.message}</div>}
             </div>
             <div className="modal-form-footer">
-              <button>Save</button>
+              <button type="submit">Save</button>
             </div>
           </div>
         </div>

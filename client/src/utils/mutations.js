@@ -27,3 +27,24 @@ export const ADD_CASE_MANAGER = gql`
     }
   }
 `;
+
+export const ADD_MINOR = gql`
+  mutation addMinor(
+    $uacname: String!
+    $a_number: String!
+    $intake: String!
+    $gender: String!
+  ) {
+    addMinor(
+      uacname: $uacname
+      a_number: $a_number
+      intake: $intake
+      gender: $gender
+    ) {
+      Minor {
+        _id
+        uacname
+      }
+    }
+  }
+`;

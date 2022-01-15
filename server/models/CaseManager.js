@@ -1,5 +1,6 @@
 const Mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const UAC = require("./Minor");
 
 const caseManagerSchema = new Mongoose.Schema({
   username: {
@@ -17,18 +18,16 @@ const caseManagerSchema = new Mongoose.Schema({
     required: true,
     minlength: 5,
   },
-  is_teamLead: [
-    {
-      type: Boolean,
-      trim: true,
-      default: false,
-    },
-  ],
+  is_teamLead: {
+    type: Boolean,
+    trim: true,
+    default: false,
+  },
 
   caseload: [
     {
-      type: String,
-      trim: true,
+      type: Mongoose.Schema.Types.ObjectId,
+      ref: "UAC",
     },
   ],
 });

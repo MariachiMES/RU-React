@@ -1,6 +1,34 @@
 import "./login.scss";
+import { useState } from "react";
+import { LOGIN_CASE_MANAGER } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 export default function Login() {
+  const [formData, setFormData] = useState({ password: "", email: "" });
+  const [loginCaseManager, { data, loading, error }] =
+    useMutation(LOGIN_CASE_MANAGER);
+  //   variables: {
+  //     email: formData.email,
+  //     password: formData.password,
+  //   },
+  //   onCompleted: (login) => {
+  //     console.log(login);
+  //   },
+  // });
+  const handleLogin = async function (e) {
+    e.preventDefault();
+
+    loginCaseManager({
+      variables: {
+        email: formData.email,
+        password: formData.password,
+      },
+    });
+  };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="login">
       <div className="wrapper">
@@ -15,16 +43,24 @@ export default function Login() {
           <div className="titles">
             <h2>Login</h2>
           </div>
-          <form className="login">
+          <form onSubmit={handleLogin} className="login">
             Email:
-            <input placeholder="Email" type="text" className="email"></input>
+            <input
+              onChange={handleChange}
+              placeholder="Email"
+              name="email"
+              type="text"
+              className="email"
+            ></input>
             Password:
             <input
+              onChange={handleChange}
               placeholder="Password"
+              name="password"
               type="password"
               className="password"
             ></input>
-            <button>Login</button>
+            <input type="submit" id="login-btn"></input>
           </form>
         </div>
       </div>

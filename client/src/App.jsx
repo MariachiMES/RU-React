@@ -47,7 +47,7 @@ function App() {
           <Route path="/" exact component={Landing}></Route>
           <Route path="/signup" exact component={NewCaseManager}></Route>
           <Route path="/Census" exact component={Census}></Route>
-          <Route exact path="/Dashboard:uac_id">
+          <Route exact path="/Dashboard">
             <Dashboard />
           </Route>
         </div>

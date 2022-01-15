@@ -1,25 +1,48 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { CaseManager } = require("../models/CaseManager");
+const { CaseManager, Minor } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    casemanager: async () => {
+    casemanagers: async () => {
       return CaseManager.find();
     },
 
     casemanager: async (parent, { caseManagerId }) => {
       return CaseManager.findOne({ _id: caseManagerId });
     },
+    minors: async () => {
+      return Minor.find();
+    },
+    minor: async (parent, { minorId }) => {
+      return Minor.findOne({ _id: minorId });
+    },
   },
 
   Mutation: {
-    addCaseManager: async (parent, { name, email, password }) => {
-      const caseManager = await CaseManager.create({ name, email, password });
+    addCaseManager: async (parent, { username, email, password }) => {
+      console.log("add case manager mutation in schemas");
+      const caseManager = await CaseManager.create({
+        username,
+        email,
+        password,
+      });
+      console.log("MUTATION IN RESOLVERS LINE 25");
       const token = signToken(caseManager);
 
       return { token, caseManager };
     },
+
+    addMinor: async (parent, { uacname, a_number, intake, gender }) => {
+      console.log("add Uac mutation in schemas");
+      const minor = await Minor.create({ uacname, a_number, intake, gender });
+      return minor;
+    },
+
+    removeMinor: async (parent, { minorId }) => {
+      return Minor.findOneAndDelete({ _id: minorId });
+    },
+
     login: async (parent, { email, password }) => {
       const caseManager = await CaseManager.findOne({ email });
 
@@ -49,8 +72,7 @@ const resolvers = {
     //     }
     //   );
     // },
-    // removeProfile: async (parent, { profileId }) => {
-    //   return CaseManager.findOneAndDelete({ _id: profileId });
+
     // },
     // removeSkill: async (parent, { profileId, skill }) => {
     //   return CaseManager.findOneAndUpdate(
