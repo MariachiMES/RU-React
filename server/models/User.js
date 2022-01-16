@@ -1,13 +1,14 @@
 const Mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const Minor = require("./Minor");
 
-const caseManagerSchema = new Mongoose.Schema({
-  Name: {
+const userSchema = new Mongoose.Schema({
+  username: {
     type: String,
     required: true,
     trim: true,
   },
-  Email: {
+  email: {
     type: String,
     required: true,
     unique: true,
@@ -17,23 +18,21 @@ const caseManagerSchema = new Mongoose.Schema({
     required: true,
     minlength: 5,
   },
-  is_teamLead: [
-    {
-      type: Boolean,
-      trim: true,
-      default: false,
-    },
-  ],
+  is_teamLead: {
+    type: Boolean,
+    trim: true,
+    default: false,
+  },
 
   caseload: [
     {
-      type: String,
-      trim: true,
+      type: Mongoose.Schema.Types.ObjectId,
+      ref: "Minor",
     },
   ],
 });
 
-caseManagerSchema.pre("save", async function (next) {
+userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -42,10 +41,10 @@ caseManagerSchema.pre("save", async function (next) {
   next();
 });
 
-caseManagerSchema.methods.isCorrectPassword = async function (password) {
+userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const CaseManager = Mongoose.model("CaseManager", caseManagerSchema);
+const User = Mongoose.model("User", userSchema);
 
-module.exports = CaseManager;
+module.exports = User;

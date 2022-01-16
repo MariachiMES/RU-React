@@ -1,4 +1,4 @@
-const CaseManager = require("./CaseManager");
-const UAC = require("./Uac");
+const User = require("./User");
+const Minor = require("./Minor");
 
-module.exports = { CaseManager, UAC };
+module.exports = { User, Minor };

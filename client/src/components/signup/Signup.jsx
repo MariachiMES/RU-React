@@ -1,6 +1,44 @@
+import React, { useState } from "react";
 import "./signup.scss";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 export default function Signup() {
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  //set initial form state//
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+      window.location.replace("/");
+    } catch (e) {
+      console.log("this is not working at all, david");
+      console.error(e);
+    }
+  };
   return (
     <div className="signup">
       <div className="signin">
@@ -16,23 +54,48 @@ export default function Signup() {
             <div className="titles">
               <h2>Sign-Up</h2>
             </div>
-            <form className="login">
-              Name:
-              <input
-                placeholder="First and Last Name"
-                type="text"
-                className="username"
-              ></input>
-              Email:
-              <input placeholder="Email" type="text" className="email"></input>
-              Password:
-              <input
-                placeholder="Password"
-                type="password"
-                className="password"
-              ></input>
-              <button>Sign-Up</button>
-            </form>
+            {data ? (
+              <p>
+                Success! You may now head <Link to="/">to Login.</Link>
+              </p>
+            ) : (
+              <form className="login" onSubmit={handleFormSubmit}>
+                Name:
+                <input
+                  placeholder="First and Last Name"
+                  type="text"
+                  name="username"
+                  className="username"
+                  value={formState.username}
+                  onChange={handleChange}
+                ></input>
+                Email:
+                <input
+                  placeholder="Email"
+                  type="text"
+                  name="email"
+                  className="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                ></input>
+                Password:
+                <input
+                  placeholder="password"
+                  type="password"
+                  name="password"
+                  className="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                ></input>
+                <button
+                  disabled={!(formState.email && formState.password)}
+                  type="submit"
+                >
+                  Sign-Up
+                </button>
+              </form>
+            )}
+            {error && <div style={{ color: "red" }}>{error.message}</div>}
           </div>
         </div>
       </div>

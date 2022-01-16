@@ -14,4 +14,17 @@ $mainColor: rgb(40, 78, 150);
 }
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
+$width: 768px;
+$tabletWidth: 812px;
+
+@mixin mobile {
+  @media (max-width: #{$width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tabletWidth}) {
+    @content;
+  }
 }
