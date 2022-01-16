@@ -34,7 +34,6 @@ const resolvers = {
         email,
         password,
       });
-      console.log("MUTATION IN RESOLVERS LINE 25");
       const token = signToken(user);
 
       return { token, user };

@@ -53,8 +53,7 @@ export default function Login() {
             <h2>Login</h2>
           </div>
 
-          <form className="login-form">
-          <form onSubmit={handleLogin} className="login">
+          <form onSubmit={handleLogin} className="login-form">
             Email:
             <input
               onChange={handleChange}

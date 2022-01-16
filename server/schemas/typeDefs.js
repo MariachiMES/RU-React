@@ -11,8 +11,9 @@ const typeDefs = gql`
   }
 
   type Minor {
+    _id: ID
     uacname: String
-    a_number: String
+    a_number: Int
     dob: String
     uac_age: Int
     coo: String
@@ -97,10 +98,10 @@ const typeDefs = gql`
 
     addMinor(
       uacname: String!
-      a_number: String!
+      a_number: Int!
       intake: String!
       gender: String!
-    ): Auth
+    ): Minor
 
     updateSponsor(
       sponsor_name: String

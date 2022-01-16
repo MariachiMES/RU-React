@@ -10,17 +10,14 @@ const minorSchema = new Schema({
   a_number: {
     type: Number,
     required: true,
-    trim: true,
     minlength: [9, "Too short"],
     maxlength: [9, "Too long"],
   },
   dob: {
     type: String,
-    required: true,
   },
   uac_age: {
     type: Number,
-    defaultValue: 0,
   },
   coo: String,
   intake: String,
