@@ -1,5 +1,7 @@
 @import "../../global.scss";
-
+body{
+  background-color: rgb(40, 78, 150);
+}
 .login {
   background-color: $mainColor;
   display: flex;
@@ -7,8 +9,21 @@
   .wrapper {
     padding: 70px;
     height: 40vh;
+    @include for-phone-only{
+      flex-direction: column;
+    }
     h1 {
       color: white;
+      font-size: 70px;
+      @include for-phone-only{
+        font-size: 40px;
+      }
+    }
+    h3 {
+      color: lightblue;
+      @include for-phone-only{
+        font-size: 25px;
+      }
       font-size: 100px;
       margin: 0;
     }
@@ -19,6 +34,9 @@
     h2 {
       font-size: 30px;
       color: cornflowerblue;
+      @include for-phone-only{
+        font-size: 15px;
+      }
     }
     display: flex;
     width: 100%;
@@ -27,6 +45,9 @@
       align-items: center;
       justify-content: center;
       border-right: 3px solid white;
+      @include for-phone-only{
+        border: none;
+      }
     }
     .right {
       flex: 0.5;
@@ -37,7 +58,7 @@
         }
       }
 
-      .login {
+      .login-form {
         color: white;
         font-weight: bolder;
         display: flex;
@@ -46,6 +67,10 @@
         margin: 20px;
         justify-content: center;
         align-items: center;
+        @include for-phone-only{
+          position: absolute;
+          left: 0px;
+        }
 
         .email {
           width: 300px;

@@ -110,19 +110,19 @@ export default function Dashboard() {
             <div className="demographics-content">
               <table>
                 <tr>
-                  <td>DOB:</td>
-                  <td>COO:</td>
+                  <td>DOB: 06/22/1994</td>
+                  <td>COO: Mexico</td>
                 </tr>
                 <tr>
-                  <td>LOS:</td>
-                  <td>Age:</td>
+                  <td>LOS: 6 months</td>
+                  <td>Age: 6 Years Old</td>
                 </tr>
                 <tr>
-                  <td>Cagetgory:</td>
-                  <td>Gender:</td>
+                  <td>Category: 1 </td>
+                  <td>Gender: Male</td>
                 </tr>
                 <tr>
-                  <td>SIR:</td>
+                  <td>SIR: 1</td>
                 </tr>
               </table>
             </div>
@@ -139,25 +139,25 @@ export default function Dashboard() {
             <div className="sponsor-contents">
               <table>
                 <tr>
-                  <td>Name:</td>
-                  <td>City:</td>
+                  <td>Name: Daniel</td>
+                  <td>City: San Antonio</td>
                 </tr>
                 <tr>
-                  <td>Address:</td>
-                  <td>Relationship:</td>
+                  <td>Address: 123 main</td>
+                  <td>Relationship: father</td>
                 </tr>
                 <tr>
-                  <td>State:</td>
+                  <td>State: TX</td>
                 </tr>
                 <tr>
-                  <td>Zip:</td>
+                  <td>Zip: 78237</td>
                 </tr>
               </table>
             </div>
           </div>
           <div className="smarty-streets">
             <div className="smarty-streets-header">
-              <h2>Utilities/Release Request</h2>
+              <h2 id="utils">Utilities/Release Request</h2>
               <h3
                 onClick={() =>
                   setReleaseRequestModalOpen(!editReleaseRequestModalOpen)

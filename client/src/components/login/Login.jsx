@@ -43,7 +43,7 @@ export default function Login() {
       <div className="wrapper">
         <div className="left">
           <h1>Reunify</h1>
-          <h3>Case Manager Supplemental Worflow Platform</h3>
+          <h3>Case Manager Supplemental Workflow Platform</h3>
           <a href="/signup">
             <h2>SIGN-UP</h2>
           </a>
@@ -52,6 +52,8 @@ export default function Login() {
           <div className="titles">
             <h2>Login</h2>
           </div>
+
+          <form className="login-form">
           <form onSubmit={handleLogin} className="login">
             Email:
             <input
