@@ -5,11 +5,10 @@ const expiration = "2h";
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    console.log("authmiddleware token in auth.js line 8");
-
     let token = req.body.token || req.query.token || req.headers.authorization;
     if (req.headers.authorization) {
       token = token.split(" ").pop().trim();
+      console.log(token);
     }
 
     if (!token) {
@@ -20,8 +19,9 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
+      console.log("good token");
     } catch {
-      console.log("Invalid token");
+      console.log("Invalid token WHY IS IT USING A TOKEN?");
     }
 
     // return the request object so it can be passed to the resolver as `context`

@@ -1,19 +1,17 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
-const { authMiddleware } = require("./utils/auth");
-
 const path = require("path");
+
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
-const app = express();
 const PORT = process.env.PORT || 3001;
+const app = express();
 
 const server = new ApolloServer({
   introspection: true,
   typeDefs,
   resolvers,
-  context: authMiddleware,
   formatError: (error) => error,
 });
 server.applyMiddleware({ app, path: "/graphql" });
@@ -28,7 +26,9 @@ app.use(
 );
 
 app.use("/", express.static(path.join(__dirname, "../client/src")));
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 db.once("open", () => {
   app.listen(PORT, () => {
     console.log(`

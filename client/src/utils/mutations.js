@@ -38,10 +38,9 @@ export const ADD_MINOR = gql`
       intake: $intake
       gender: $gender
     ) {
-      Minor {
-        _id
-        uacname
-      }
+      uacname
+      a_number
+      intake
     }
   }
 `;
