@@ -9,3 +9,17 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_CENSUS = gql`
+  query minors {
+    minors {
+      _id
+      uacname
+      a_number
+      submitted
+      approved
+      remanded
+      discharged
+    }
+  }
+`;
