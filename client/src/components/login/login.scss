@@ -24,8 +24,15 @@ body{
       @include for-phone-only{
         font-size: 25px;
       }
+      font-size: 100px;
+      margin: 0;
+    }
+    h3 {
+      color: lightblue;
+      font-size: 25px;
     }
     h2 {
+      font-size: 30px;
       color: cornflowerblue;
       @include for-phone-only{
         font-size: 15px;

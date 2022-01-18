@@ -1,15 +1,29 @@
 [
   {
-    "Name": "David Ortiz",
-    "Email": "davidjortizmusic@gmail.com",
+    "username": "Iron Man",
+    "email": "davidjortizmusic@gmail.com",
     "password": "password01",
     "is_team_lead": "true",
     "caseload": ""
   },
   {
-    "Name": "Daniel Burford",
-    "Email": "daniel@gmail.com",
+    "username": "Darth Vader",
+    "email": "darthvader@gmail.com",
     "password": "password02",
+    "is_team_lead": "true",
+    "caseload": ""
+  },
+  {
+    "username": "Big Bird",
+    "email": "Big Bird@gmail.com",
+    "password": "password04",
+    "is_team_lead": "true",
+    "caseload": ""
+  },
+  {
+    "username": "Oscar The Grouch",
+    "email": "Oscar@gmail.com",
+    "password": "password05",
     "is_team_lead": "true",
     "caseload": ""
   }

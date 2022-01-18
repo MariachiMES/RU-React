@@ -3,8 +3,9 @@ import NewUacModal from "../newUACModal/NewUacModal";
 import Navbar from "../navbar/Navbar";
 import { useState } from "react";
 import Menu from "../menu/Menu";
+import { withRouter } from "react-router";
 
-export default function Census() {
+function Census() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [newUacModalOpen, setNewUacModalOpen] = useState(false);
 
@@ -86,3 +87,4 @@ export default function Census() {
     </div>
   );
 }
+export default withRouter(Census);

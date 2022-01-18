@@ -1,40 +1,70 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { CaseManager } = require("../models/CaseManager");
+const { User, Minor } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    casemanager: async () => {
-      return CaseManager.find();
+    users: async () => {
+      return User.find();
     },
 
-    casemanager: async (parent, { caseManagerId }) => {
-      return CaseManager.findOne({ _id: caseManagerId });
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select(
+          "-v -password"
+        );
+        return userData;
+      }
+      throw new AuthenticationError("you need to be logged in");
+    },
+
+    minors: async () => {
+      return Minor.find();
+    },
+    minor: async (parent, { minorId }) => {
+      return Minor.findOne({ _id: minorId });
     },
   },
 
   Mutation: {
-    addCaseManager: async (parent, { name, email, password }) => {
-      const caseManager = await CaseManager.create({ name, email, password });
-      const token = signToken(caseManager);
+    addUser: async (parent, { username, email, password }) => {
+      console.log("add case manager mutation in schemas");
+      const user = await User.create({
+        username,
+        email,
+        password,
+      });
+      console.log("MUTATION IN RESOLVERS LINE 25");
+      const token = signToken(user);
 
-      return { token, caseManager };
+      return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const caseManager = await CaseManager.findOne({ email });
 
-      if (!caseManager) {
-        throw new AuthenticationError("No profile with this email found!");
+    addMinor: async (parent, { uacname, a_number, intake, gender }) => {
+      console.log("add Uac mutation in schemas");
+      const minor = await Minor.create({ uacname, a_number, intake, gender });
+      return minor;
+    },
+
+    removeMinor: async (parent, { minorId }) => {
+      return Minor.findOneAndDelete({ _id: minorId });
+    },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("Incorrect Email or Password!");
       }
 
-      const correctPw = await CaseManager.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect password!");
+        throw new AuthenticationError("Incorrect email or password!");
       }
 
-      const token = signToken(profile);
-      return { token, profile };
+      const token = signToken(user);
+      return { token, user };
     },
 
     // addSkill: async (parent, { profileId, skill }) => {
@@ -49,11 +79,10 @@ const resolvers = {
     //     }
     //   );
     // },
-    // removeProfile: async (parent, { profileId }) => {
-    //   return CaseManager.findOneAndDelete({ _id: profileId });
+
     // },
     // removeSkill: async (parent, { profileId, skill }) => {
-    //   return CaseManager.findOneAndUpdate(
+    //   return User.findOneAndUpdate(
     //     { _id: profileId },
     //     { $pull: { skills: skill } },
     //     { new: true }
