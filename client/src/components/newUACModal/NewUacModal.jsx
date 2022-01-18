@@ -18,6 +18,7 @@ export default function NewUacModal({ newUacModalOpen, setNewUacModalOpen }) {
       });
 
       console.log(data);
+      window.location.replace("/Census");
     } catch (e) {
       console.log("this is not working at all, david");
 
