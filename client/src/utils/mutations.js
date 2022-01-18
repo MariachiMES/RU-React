@@ -28,7 +28,7 @@ export const ADD_USER = gql`
 export const ADD_MINOR = gql`
   mutation addMinor(
     $uacname: String!
-    $a_number: String!
+    $a_number: Int!
     $intake: String!
     $gender: String!
   ) {
@@ -38,10 +38,9 @@ export const ADD_MINOR = gql`
       intake: $intake
       gender: $gender
     ) {
-      Minor {
-        _id
-        uacname
-      }
+      uacname
+      a_number
+      intake
     }
   }
 `;

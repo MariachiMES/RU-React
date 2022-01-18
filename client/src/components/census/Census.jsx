@@ -3,12 +3,32 @@ import NewUacModal from "../newUACModal/NewUacModal";
 import Navbar from "../navbar/Navbar";
 import { useState } from "react";
 import Menu from "../menu/Menu";
-import { withRouter } from "react-router";
+import { useQuery } from "@apollo/client";
+import { QUERY_CENSUS, QUERY_USER } from "../../utils/queries";
+import { useParams } from "react-router-dom";
 
-function Census() {
+export default function Census() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [newUacModalOpen, setNewUacModalOpen] = useState(false);
+  const { _id, uacname, a_number, submitted, approved, remanded, discharged } =
+    useParams();
 
+  const { loading, data } = useQuery(QUERY_CENSUS, {
+    variables: {
+      _id,
+      uacname,
+      a_number,
+      submitted,
+      approved,
+      remanded,
+      discharged,
+    },
+  });
+  const minor = data?.minors || {};
+  console.log(minor);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="census">
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
@@ -60,16 +80,21 @@ function Census() {
             <th className="mobile-invisible">Approved</th>
             <th className="mobile-invisible">Remanded</th>
           </tr>
-          <tr>
-            <td>233343540</td>
-            <td>Enzo Enrique Ortiz De La Madre Y Media</td>
-            <td className="mobile-invisible">David Ortiz</td>
-            <td className="mobile-invisible">11/23/2021</td>
-            <td className="mobile-invisible">11/23/2021</td>
-            <td className="mobile-invisible">11/23/2021</td>
-            <td className="mobile-invisible">11/23/2021</td>
-            <td className="mobile-invisible">11/23/2021</td>
-          </tr>
+          {minor.map((minor) => (
+            <tr>
+              <td key={minor._id}>
+                <a href={`/Dashboard/${minor._id}`}>{minor.a_number}</a>
+              </td>
+              <td>{minor.uacname}</td>
+              <td className="mobile-invisible">David Ortiz</td>
+              <td className="mobile-invisible"></td>
+              <td className="mobile-invisible"></td>
+
+              <td className="mobile-invisible">{minor.submitted}</td>
+              <td className="mobile-invisible">{minor.approved}</td>
+              <td className="mobile-invisible">{minor.remanded}</td>
+            </tr>
+          ))}
         </table>
       </div>
       <div className="census-table-mobile">
@@ -87,4 +112,3 @@ function Census() {
     </div>
   );
 }
-export default withRouter(Census);

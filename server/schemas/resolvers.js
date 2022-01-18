@@ -5,24 +5,17 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return User.find().populate("minors");
     },
 
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-v -password"
-        );
-        return userData;
-      }
-      throw new AuthenticationError("you need to be logged in");
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate("minor");
     },
-
-    minors: async () => {
-      return Minor.find();
+    minors: async (parent, { minorId }) => {
+      return Minor.find().populate("username");
     },
     minor: async (parent, { minorId }) => {
-      return Minor.findOne({ _id: minorId });
+      return (await Minor.findById({ _id: minorId })).populated("minor");
     },
   },
 
@@ -34,14 +27,13 @@ const resolvers = {
         email,
         password,
       });
-      console.log("MUTATION IN RESOLVERS LINE 25");
       const token = signToken(user);
 
       return { token, user };
     },
 
     addMinor: async (parent, { uacname, a_number, intake, gender }) => {
-      console.log("add Uac mutation in schemas");
+      console.log("add MINOR mutation in schemas");
       const minor = await Minor.create({ uacname, a_number, intake, gender });
       return minor;
     },
