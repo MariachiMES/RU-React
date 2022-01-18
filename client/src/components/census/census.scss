@@ -76,11 +76,17 @@
       @include for-phone-only{
         display: flex;
       }
-      h1 {
+      .add-uac {
         color: white;
         margin-right: 40px;
         font-size: 40px;
         cursor: pointer;
+        @include for-phone-only{
+          flex-direction: column;
+          position: absolute;
+          left: 150px;
+          top: 240px;
+        }
 
       }
       .discharged-btn {
@@ -123,7 +129,7 @@
     padding: 20px;
     margin-top: 150px;
     @include for-phone-only{
-      width: 100%;
+      display: none;
     }
     tr {
       border-bottom: 1px cornflowerblue solid;
@@ -149,9 +155,29 @@
     }
   }
 }
-.mobile-invisible{
+.census-table-mobile{
+  display: none;
   @include for-phone-only{
-    visibility: hidden;
-    width: 100%;
+    display: block;
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    margin-top: 150px;
+    padding-left: -50px;
+    
+  }
+}
+
+.mobile{
+  color: white;
+  width:49;
+  border-right: solid 1px white;
+}
+.adduca{
+  display: none;
+  @include for-phone-only{
+    display: block;
+    font-size: 20px;
   }
 }

@@ -43,7 +43,7 @@ export default function Census() {
             className="add-uac"
             onClick={() => setNewUacModalOpen(!newUacModalOpen)}
           >
-            +
+            +<span className="adduca">ADD UAC</span>
           </h1>
         </div>
       </div>
@@ -68,6 +68,18 @@ export default function Census() {
             <td className="mobile-invisible">11/23/2021</td>
             <td className="mobile-invisible">11/23/2021</td>
             <td className="mobile-invisible">11/23/2021</td>
+          </tr>
+        </table>
+      </div>
+      <div className="census-table-mobile">
+        <table>
+          <tr>
+            <th className="mobile">A#</th>
+            <th className="mobile">UAC</th>
+          </tr>
+          <tr>
+            <td className="mobile">233343540</td>
+            <td className="mobile">Enzo Enrique Ortiz De La Madre Y Media</td>
           </tr>
         </table>
       </div>
