@@ -32,7 +32,7 @@ export default function Dashboard() {
   });
   console.log("this is the minor's data", data);
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...Loading...Loading...</div>;
   }
   return (
     <>
