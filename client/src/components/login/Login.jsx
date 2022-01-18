@@ -71,7 +71,7 @@ export default function Login() {
               type="password"
               className="password"
             ></input>
-            <button type="submit">FUGGIN LOGIN</button>
+            <button type="submit">LOGIN</button>
           </form>
           {error && <div style={{ color: "red" }}>{error.message}</div>}
         </div>
