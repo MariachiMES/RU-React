@@ -16,6 +16,15 @@ $mainColor: rgb(40, 78, 150);
   }
 }
 @mixin for-desktop-up {
+
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+$width: 768px;
+$tabletWidth: 812px;
+}
+
   @media (min-width: 1200px) {
     @content;
   }
@@ -27,3 +36,4 @@ $mainColor: rgb(40, 78, 150);
   $width: 768px;
   $tabletWidth: 812px;
 }
+

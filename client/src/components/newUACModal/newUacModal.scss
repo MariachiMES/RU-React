@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  @include for-phone-only{
+    width: 100%;
+  }
   .modal-background {
     height: 100vh;
     width: 100%;
@@ -30,6 +33,9 @@
       border-radius: 10px;
       flex-direction: column;
       cursor: default;
+    @include for-phone-only{
+    width: 100%;
+  }
 
       .modal-form-header {
         display: flex;
@@ -37,7 +43,9 @@
         height: 70px;
         color: lightblue;
         border-bottom: 3px solid cornflowerblue;
-
+        @include for-phone-only{
+    width: 100%;
+  }
         .modal-form-header-right {
           margin-left: 20px;
           align-items: left;
@@ -64,13 +72,17 @@
         display: flex;
         flex-direction: column;
         background-color: rgb(24, 50, 88);
-
+        @include for-phone-only{
+    width: 100%;
+  }
         form {
           display: flex;
           flex-direction: column;
           margin: 30px;
           justify-content: space-evenly;
-
+          @include for-phone-only{
+    width: 100%;
+  }
           h3 {
             font-size: 26px;
             text-align: left;
@@ -83,6 +95,9 @@
             margin-bottom: 10px;
             border-radius: 5px;
             font-size: 25px;
+            @include for-phone-only{
+    width: 80%;
+  }
           }
         }
       }
@@ -92,7 +107,9 @@
         align-items: center;
         justify-content: center;
         display: flex;
-
+        @include for-phone-only{
+    width: 100%;
+  }
         button {
           height: 40px;
           width: 100px;

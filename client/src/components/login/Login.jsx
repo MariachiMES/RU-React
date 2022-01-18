@@ -52,7 +52,6 @@ export default function Login() {
           <div className="titles">
             <h2>Login</h2>
           </div>
-
           <form onSubmit={handleLogin} className="login-form">
             Email:
             <input
