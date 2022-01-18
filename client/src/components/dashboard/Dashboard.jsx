@@ -9,8 +9,11 @@ import ReleaseRequestModal from "../ReleaseRequestModal/ReleaseRequestModal";
 import SmartyStreets from "../SmartyStreetsModal/SmartyStreets";
 import Navbar from "../navbar/Navbar";
 import Menu from "../menu/Menu";
-
+import { QUERY_MINOR, QUERY_USER } from "../../utils/queries";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 export default function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [smartyStreetsOpen, setSmartyStreetsOpen] = useState(false);
@@ -23,6 +26,18 @@ export default function Dashboard() {
   const [editExceptionModalOpen, setEditExceptionModalOpen] = useState(false);
   const [editReleaseRequestModalOpen, setReleaseRequestModalOpen] =
     useState(false);
+  const { minorId } = useParams();
+  console.log(minorId);
+  const { loading, data, error } = useQuery(QUERY_MINOR, {
+    variables: { minorId: minorId },
+  });
+  useEffect(() => {
+    if (loading === false) {
+      console.log("data", data);
+    } else {
+      console.log("in else statement");
+    }
+  }, [data, loading]);
   return (
     <>
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
@@ -61,8 +76,8 @@ export default function Dashboard() {
           setEditSponsorModalOpen={setEditSponsorModalOpen}
         />
         <div className="header">
-          <h1>Enzo Enrique Ortiz</h1>
-          <h3>A#234632456</h3>
+          <h1>{data.minor.uacname}</h1>
+          <h3>A#{data.minor.a_number}</h3>
         </div>
         <div className="wrapper">
           <div className="left">

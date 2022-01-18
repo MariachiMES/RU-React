@@ -15,7 +15,7 @@ const resolvers = {
       return Minor.find().populate("username");
     },
     minor: async (parent, { minorId }) => {
-      return (await Minor.findById({ _id: minorId })).populated("minor");
+      return (await Minor.findById({ _id: minorId })).populate("minor");
     },
   },
 

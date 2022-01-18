@@ -5,7 +5,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
     <div className={"navbar " + (menuOpen && "active")} id="navbar">
       <div className="wrapper">
         <div className="left">
-          <div className="logo">Reunification</div>
+          <div className="logo">Reunify</div>
           <div className="itemContainer"></div>
         </div>
         <div className="right">

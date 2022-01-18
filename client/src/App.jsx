@@ -48,8 +48,7 @@ function App() {
             <Route path="/" exact component={Landing}></Route>
             <Route path="/signup" exact component={NewCaseManager}></Route>
             <Route path="/Census" exact component={Census}></Route>
-            <Route exact path="/Dashboard/">
-              <Route path="/Dashboard/:id" component={Dashboard}></Route>
+            <Route path="/Dashboard/:minorId" component={Dashboard}>
               <Dashboard />
             </Route>
           </div>
