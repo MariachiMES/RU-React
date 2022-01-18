@@ -23,3 +23,11 @@ export const QUERY_CENSUS = gql`
     }
   }
 `;
+
+export const QUERY_MINOR = gql`
+  query minor($_id: ID) {
+    minor {
+      uacname
+    }
+  }
+`;
