@@ -84,7 +84,7 @@
         @include for-phone-only{
           flex-direction: column;
           position: absolute;
-          left: 150px;
+          left: 120px;
           top: 240px;
         }
 
@@ -178,6 +178,9 @@
 .adduca{
   display: none;
   @include for-phone-only{
+    position: absolute;
+    left:35px;
+    top: -1px;
     display: block;
     font-size: 20px;
   }
