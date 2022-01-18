@@ -31,13 +31,10 @@ export default function Dashboard() {
   const { loading, data, error } = useQuery(QUERY_MINOR, {
     variables: { minorId: minorId },
   });
-  useEffect(() => {
-    if (loading === false) {
-      console.log("data", data);
-    } else {
-      console.log("in else statement");
-    }
-  }, [data, loading]);
+  console.log("this is the minor's data", data);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Navbar>
@@ -127,19 +124,19 @@ export default function Dashboard() {
               <div className="demographics-content">
                 <table>
                   <tr>
-                    <td>DOB: 06/22/1994</td>
-                    <td>COO: Mexico</td>
+                    <td>DOB: {data.minor.dob}</td>
+                    <td>COO: {data.minor.coo}</td>
                   </tr>
                   <tr>
-                    <td>LOS: 6 months</td>
-                    <td>Age: 6 Years Old</td>
+                    <td>LOS: {data.minor.intake}</td>
+                    <td>Age: {data.minor.uac_age}</td>
                   </tr>
                   <tr>
-                    <td>Category: 1 </td>
-                    <td>Gender: Male</td>
+                    <td>Category: {data.minor.category}</td>
+                    <td>Gender: {data.minor.gender}</td>
                   </tr>
                   <tr>
-                    <td>SIR: 1</td>
+                    <td>SIR: {data.minor.sir}</td>
                   </tr>
                 </table>
               </div>
@@ -156,7 +153,7 @@ export default function Dashboard() {
               <div className="sponsor-contents">
                 <table>
                   <tr>
-                    <td>Name: Daniel</td>
+                    <td>Name: {data.minor.sponsor_name}</td>
                     <td>City: San Antonio</td>
                   </tr>
                   <tr>
