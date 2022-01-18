@@ -13,7 +13,6 @@ import { QUERY_MINOR, QUERY_USER } from "../../utils/queries";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { useEffect } from "react";
 export default function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [smartyStreetsOpen, setSmartyStreetsOpen] = useState(false);
@@ -105,7 +104,7 @@ export default function Dashboard() {
                 </h3>
               </div>
               <div className="exception-contents">
-                <h2>Enter notes here</h2>
+                <h2>{data.minor.exception}</h2>
               </div>
             </div>
           </div>
@@ -154,17 +153,17 @@ export default function Dashboard() {
                 <table>
                   <tr>
                     <td>Name: {data.minor.sponsor_name}</td>
-                    <td>City: San Antonio</td>
+                    <td>City: {data.minor.sponsor_city}</td>
                   </tr>
                   <tr>
-                    <td>Address: 123 main</td>
-                    <td>Relationship: father</td>
+                    <td>Address: {data.minor.sponsor_address}</td>
+                    <td>Relationship: {data.minor.sponsor_relationship}</td>
                   </tr>
                   <tr>
-                    <td>State: TX</td>
+                    <td>State: {data.minor.sponsor_state}</td>
                   </tr>
                   <tr>
-                    <td>Zip: 78237</td>
+                    <td>Zip: {data.minor.sponsor_zip}</td>
                   </tr>
                 </table>
               </div>
@@ -208,75 +207,75 @@ export default function Dashboard() {
                 <table>
                   <tr>
                     <td>Spons. Assessment</td>
-                    <td>11/12/22</td>
+                    <td>{data.minor.sponsor_assessment}</td>
                   </tr>
                   <tr>
                     <td>FRP</td>
-                    <td>DATE</td>
+                    <td>{data.minor.frp}</td>
                   </tr>
                   <tr>
                     <td>ARI</td>
-                    <td>DATE</td>
+                    <td>{data.minor.ari}</td>
                   </tr>
                   <tr>
                     <td>LOD</td>
-                    <td>DATE</td>
+                    <td>{data.minor.lod}</td>
                   </tr>
                   <tr>
                     <td>Genogram Complete</td>
-                    <td>DATE</td>
+                    <td>{data.minor.list_of_bcs}</td>
                   </tr>
                   <tr>
                     <td>Proof of Address</td>
-                    <td>DATE</td>
+                    <td>{data.minor.poa}</td>
                   </tr>
                   <tr>
                     <td>Sponsor Background</td>
-                    <td>DATE</td>
+                    <td>{data.minor.sponsor_bgc}</td>
                   </tr>
                   <tr>
                     <td>LOPC</td>
-                    <td>DATE</td>
+                    <td>{data.minor.lopc}</td>
                   </tr>
                   <tr>
                     <td>Sponsor ID Received</td>
-                    <td>DATE</td>
+                    <td>{data.minor.sponsor_id}</td>
                   </tr>
                   <tr>
                     <td>Fingerprints Taken</td>
-                    <td>DATE</td>
+                    <td>{data.minor.sponsor_fp}</td>
                   </tr>
                   <tr>
                     <td>HHM ID's Received</td>
-                    <td>DATE</td>
+                    <td>{data.minor.hhm_id}</td>
                   </tr>
                   <tr>
                     <td>HHM Background</td>
-                    <td>DATE</td>
+                    <td>{data.minor.hhm_checks}</td>
                   </tr>
                   <tr>
                     <td>HHM SO Check</td>
-                    <td>DATE</td>
+                    <td>{data.minor.sex_offender_check}</td>
                   </tr>
                   <tr>
                     <td>Caregiver Contact</td>
-                    <td>DATE</td>
+                    <td>{data.minor.caregiver_date}</td>
                   </tr>
                   <tr>
                     <td>Prior Sponsorship</td>
-                    <td>DATE</td>
+                    <td>{data.minor.prior_sponsorship}</td>
                   </tr>
                   <tr>
                     <td>Prior Address</td>
-                    <td>DATE</td>
+                    <td>{data.minor.previous_address}</td>
                   </tr>
                   <tr>
                     <td>Criminal History</td>
-                    <td>DATE</td>
+                    <td>{data.minor.criminal_history_date}</td>
                   </tr>
                   <tr>
                     <td>CA/N Checks Req.</td>
-                    <td>DATE</td>
+                    <td>{data.minor.can_check_requested}</td>
                   </tr>
                 </table>
               </div>

@@ -37,9 +37,13 @@ const resolvers = {
       const minor = await Minor.create({ uacname, a_number, intake, gender });
       return minor;
     },
-
+    updateStatus: async (parent, { minorId }) => {
+      console.log("updating status");
+      const status = await Minor.findByIdAndUpdate(args, { minorId });
+      return status;
+    },
     removeMinor: async (parent, { minorId }) => {
-      return Minor.findOneAndDelete({ _id: minorId });
+      return Minor.findOneAndDelete(args, { _id: minorId });
     },
 
     login: async (parent, { email, password }) => {
