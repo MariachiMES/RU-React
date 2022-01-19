@@ -21,19 +21,19 @@ function Census() {
       <div className="census-header">
         <div className="census-header-left">
           <div className="total">
-            <h3>TOTAL</h3>
+            <h3 className="titles">TOTAL</h3>
             <h1>10</h1>
           </div>
           <div className="submitted">
-            <h3>SUBMITTED</h3>
+            <h3 className="titles">SUBMITTED</h3>
             <h1>10</h1>
           </div>
           <div className="approved">
-            <h3>APPROVED</h3>
+            <h3 className="titles">APPROVED</h3>
             <h1>10</h1>
           </div>
           <div className="remanded">
-            <h3>REMANDED</h3>
+            <h3 className="titles">REMANDED</h3>
             <h1>10</h1>
           </div>
         </div>
@@ -44,7 +44,7 @@ function Census() {
             className="add-uac"
             onClick={() => setNewUacModalOpen(!newUacModalOpen)}
           >
-            +<span className="adduca">ADD UAC</span>
+            +
           </h1>
         </div>
       </div>
