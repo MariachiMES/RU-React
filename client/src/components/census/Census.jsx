@@ -64,7 +64,7 @@ export default function Census() {
             className="add-uac"
             onClick={() => setNewUacModalOpen(!newUacModalOpen)}
           >
-            +
+            ADD UAC +
           </h1>
         </div>
       </div>

@@ -79,7 +79,7 @@
       .add-uac {
         color: white;
         margin-right: 40px;
-        font-size: 40px;
+        font-size: 25px;
         cursor: pointer;
 
         @include for-phone-only {
@@ -90,6 +90,7 @@
         }
       }
       .discharged-btn {
+        display: none;
         font-size: 25px;
         width: 100%;
         border: none;
@@ -105,7 +106,8 @@
         }
       }
       .logout-btn {
-        width: 100%;
+        display: none;
+        width: 30%;
         font-size: 25px;
         border: none;
         height: 2rem;
@@ -114,7 +116,7 @@
         color: white;
         font-weight: 700;
         border-radius: 20px;
-        margin-right: 40px;
+        margin-right: auto;
         box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
         @include for-phone-only {
           flex-direction: column;

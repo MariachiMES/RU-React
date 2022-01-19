@@ -1,0 +1,4 @@
+export const UPDATE_STATUS = "UPDATE_STATUS";
+
+export const UPDATE_TASKS = "UPDATE_TASKS";
+export const UPDATE_SPONSOR = "UPDATE_SPONSOR";

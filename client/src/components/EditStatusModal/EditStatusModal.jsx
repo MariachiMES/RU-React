@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./EditStatusModal.scss";
 import { QUERY_MINOR, QUERY_USER } from "../../utils/queries";
 import { useParams } from "react-router-dom";
@@ -8,6 +8,17 @@ export default function EditStatusModal({
   editStatusModalOpen,
   setEditStatusModalOpen,
 }) {
+  // const [state, dispatch] = useMinorContext();
+
+  // useEffect(() => {
+  //   if(data) {
+  //     dispatch({
+  //       type: UPDATE_STATUS,
+  //       status: data.minor.submitted
+  //     })
+  //   }
+  // })
+
   const { minorId } = useParams();
   console.log(minorId);
   const { loading, data, error } = useQuery(QUERY_MINOR, {
