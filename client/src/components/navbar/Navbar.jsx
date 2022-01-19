@@ -6,12 +6,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
         <div className="left">
           <div className="logo">Reunification</div>
-          <div className="itemContainer">
-            <span id="phone-number">Add UAC</span>
-            <i class="fas fa-envelope" id="envelope">
-              <span id="email-address">Add Case Manager</span>
-            </i>
-          </div>
+          <div className="itemContainer"></div>
         </div>
         <div className="right">
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>

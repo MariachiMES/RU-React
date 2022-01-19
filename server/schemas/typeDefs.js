@@ -11,8 +11,9 @@ const typeDefs = gql`
   }
 
   type Minor {
+    _id: ID
     uacname: String
-    a_number: String
+    a_number: Int
     dob: String
     uac_age: Int
     coo: String
@@ -79,28 +80,23 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]!
+    users: [User]
     user(UserId: ID!): User
-    minors: [Minor]!
+    minors: [Minor]
     minor(minorId: ID!): Minor
   }
 
   type Mutation {
-    # Set up mutations to handle creating a profile or logging into a profile and return Auth type
-
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
     removeUser(UserId: ID!): User
-
     removeMinor(_id: ID!): Minor
-
     addMinor(
       uacname: String!
-      a_number: String!
+      a_number: Int!
       intake: String!
       gender: String!
-    ): Auth
+    ): Minor
 
     updateSponsor(
       sponsor_name: String
