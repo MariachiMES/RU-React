@@ -1,0 +1,209 @@
+@import "../../global.scss";
+
+.census {
+  background-color: $mainColor;
+  margin-top: 71px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .census-header {
+    margin-top: 40px;
+    height: 8vh;
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    @include for-phone-only {
+      display: flex;
+      flex-direction: column;
+    }
+    .census-header-left {
+      align-items: left;
+      justify-content: space-evenly;
+      flex: 0.5;
+      display: flex;
+      background-color: rgba(245, 243, 243, 0.2);
+      border-radius: 0px 20px 20px 0px;
+      padding-top: 10px;
+      box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+      height: 85px;
+
+      .total {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .submitted {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .approved {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+      .remanded {
+        color: white;
+        h3 {
+          margin: 0;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+    }
+    .census-header-right {
+      display: flex;
+      flex: 0.5;
+      align-items: right;
+      justify-content: right;
+      text-align: right;
+      margin: auto;
+      margin-right: 40px;
+      @include for-phone-only {
+        display: flex;
+      }
+      .add-uac {
+        color: white;
+        margin-right: 40px;
+        font-size: 40px;
+        cursor: pointer;
+
+        @include for-phone-only {
+          flex-direction: column;
+          position: absolute;
+          left: 120px;
+          top: 240px;
+        }
+      }
+      .discharged-btn {
+        font-size: 25px;
+        width: 100%;
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: cornflowerblue;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+        @include for-phone-only {
+          flex-direction: column;
+        }
+      }
+      .logout-btn {
+        width: 100%;
+        font-size: 25px;
+        border: none;
+        height: 2rem;
+        margin: 20px;
+        background-color: red;
+        color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        margin-right: 40px;
+        box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+        @include for-phone-only {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+  .census-table {
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    margin-top: 150px;
+
+    @include for-phone-only {
+      display: none;
+    }
+    tr {
+      border-bottom: 1px cornflowerblue solid;
+      width: 100vw;
+      display: flex;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      th {
+        font-size: 25px;
+        color: white;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        margin-top: 10px;
+      }
+      td {
+        color: white;
+        margin-top: 10px;
+        width: 100vw;
+        display: flex;
+        text-align: left;
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.census-table-mobile {
+  display: none;
+  @include for-phone-only {
+    table {
+      width: 100%;
+    }
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+    color: white;
+    tr {
+      height: 2rem;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.mobile {
+  color: white;
+  border-bottom: 1px solid white;
+  color: white;
+}
+.adduca {
+  display: none;
+  @include for-phone-only {
+    position: absolute;
+    left: 35px;
+    top: -1px;
+    display: block;
+    font-size: 20px;
+
+    .mobile-invisible {
+      @include for-phone-only {
+        visibility: hidden;
+        width: 100%;
+      }
+    }
+  }
+}
